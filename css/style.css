@@ -1,0 +1,9 @@
+.disabledBtnParent
+{
+    cursor: not-allowed;
+}
+.disabledBtn
+{
+    opacity: 20%;
+    pointer-events: none;
+}
