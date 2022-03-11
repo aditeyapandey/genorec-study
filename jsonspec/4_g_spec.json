@@ -1,5 +1,7 @@
 {
-  "style": { "enableSmoothPath": true },
+  "style": {
+    "enableSmoothPath": true
+  },
   "assembly": "hg38",
   "arrangement": "vertical",
   "centerRadius": 0.3,
@@ -10,7 +12,9 @@
       "tracks": [
         {
           "title": "BIGWIG1 - QUANT1",
-          "style": { "outlineWidth": 1 },
+          "style": {
+            "outlineWidth": 1
+          },
           "width": 710,
           "height": 100,
           "data": {
@@ -19,32 +23,61 @@
             "row": "sample",
             "column": "position",
             "value": "peak",
-            "categories": ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"],
+            "categories": [
+              "0",
+              "1",
+              "2",
+              "3",
+              "4",
+              "5",
+              "6",
+              "7",
+              "8",
+              "9"
+            ],
             "binSize": 4
           },
           "dataTransform": [
             {
               "type": "filter",
               "field": "sample",
-              "oneOf": ["9"],
+              "oneOf": [
+                "9"
+              ],
               "not": false
             }
           ],
           "alignment": "overlay",
           "tracks": [
-            { "mark": "line" },
-            { "mark": "point", "size": { "value": 2 } }
+            {
+              "mark": "line"
+            },
+            {
+              "mark": "point",
+              "size": {
+                "value": 1.5
+              }
+            }
           ],
-          "x": { "field": "position", "type": "genomic" },
+          "x": {
+            "field": "position",
+            "type": "genomic"
+          },
           "y": {
             "field": "peak",
             "type": "quantitative",
             "axis": "right",
             "grid": true
           },
-          "color": { "value": "gray" },
-          "size": { "value": 1 },
-          "opacity": { "value": 0.8 }
+          "color": {
+            "value": "gray"
+          },
+          "size": {
+            "value": 1
+          },
+          "opacity": {
+            "value": 0.8
+          }
         }
       ]
     }

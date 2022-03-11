@@ -4,18 +4,78 @@
   },
   "assembly": "hg38",
   "arrangement": "vertical",
+  "layout":  "linear",
   "centerRadius": 0.3,
   "views": [
     {
-      "layout": "linear",
       "assembly": "hg38",
       "tracks": [
         {
-          "title": "VCF1 - QUANT1",
+          "title": "BEDPE1",
           "style": {
             "outlineWidth": 1
           },
-          "width": 704,
+          "width": 500,
+          "height": 500,
+          "data": {
+            "url": "https://s3.amazonaws.com/gosling-lang.org/data/cancer/rearrangement.PD35930a.csv",
+            "type": "csv",
+            "genomicFieldsToConvert": [
+              {
+                "chromosomeField": "chr1",
+                "genomicFields": ["start1", "end1"]
+              },
+              {
+                "chromosomeField": "chr2",
+                "genomicFields": ["start2", "end2"]
+              }
+            ]
+          },
+          "mark": "point",
+          "alignment": "overlay",
+          "tracks": [
+            {
+              "x": {"field": "start1", "type": "genomic"},
+              "y": {"field": "end2", "type": "genomic"}
+            },
+            {
+              "y": {"field": "start1", "type": "genomic"},
+              "x": {"field": "end2", "type": "genomic"}
+            }
+          ],
+
+          "color": {
+            "field": "svclass",
+            "type": "nominal",
+            "legend": false,
+            "domain": [
+              "tandem-duplication",
+              "translocation",
+              "delection",
+              "inversion"
+            ],
+            "range": ["#569C4D", "#4C75A2", "#DA5456", "#EA8A2A"]
+          },
+          "stroke": {
+            "field": "svclass",
+            "type": "nominal",
+            "domain": [
+              "tandem-duplication",
+              "translocation",
+              "delection",
+              "inversion"
+            ],
+            "range": ["#569C4D", "#4C75A2", "#DA5456", "#EA8A2A"]
+          },
+          "strokeWidth": {"value": 1},
+          "opacity": {"value": 0.6}
+        },
+        {
+          "title": "BED1 - QUANT1",
+          "style": {
+            "outlineWidth": 1
+          },
+          "width": 500,
           "height": 100,
           "data": {
             "url": "https://server.gosling-lang.org/api/v1/tileset_info/?d=gwas-beddb",
@@ -80,10 +140,10 @@
             "grid": true
           },
           "color": {
-            "value": "gray"
+            "value": "#3275B4"
           },
           "stroke": {
-            "value": "gray"
+            "value": "#3275B4"
           },
           "strokeWidth": {
             "value": 0.5

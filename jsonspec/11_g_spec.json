@@ -1,0 +1,188 @@
+{
+  "assembly": "hg38",
+  "centerRadius": 0.6,
+  "views": [
+    {
+      "tracks": [
+      {
+          "title": "BED1 - CAT1",
+          "style": {
+            "outlineWidth": 1
+          },
+          "width": 710,
+          "height": 100,
+          "data": {
+            "url": "https://s3.amazonaws.com/gosling-lang.org/data/cancer/rearrangement.PD35930a.csv",
+            "type": "csv",
+            "genomicFieldsToConvert": [
+              {
+                "chromosomeField": "chr1",
+                "genomicFields": ["start1", "end1"]
+              },
+              {
+                "chromosomeField": "chr2",
+                "genomicFields": ["start2", "end2"]
+              }
+            ]
+          },
+          "mark": "rect",
+          "dataTransform": [
+            { "type": "filter", "field": "svclass", "oneOf": ["translocation"], "not": true}
+          ], 
+          "x": {"field": "start1", "type": "genomic"},
+          "xe": {"field": "end2", "type": "genomic"},
+          "color": {
+            "field": "svclass",
+            "type": "nominal"
+          },
+          "stroke": {
+            "field": "svclass",
+            "type": "nominal"
+          },
+          "row": {
+            "field": "svclass",
+            "type": "nominal"
+          },
+          "strokeWidth": {"value": 1},
+          "opacity": {"value": 0.6}
+        },
+        {
+          "title": "BED2 - QUANT1",
+          "style": {
+            "outlineWidth": 1
+          },
+          "width": 500,
+          "height": 100,
+          "data": {
+            "url": "https://server.gosling-lang.org/api/v1/tileset_info/?d=gwas-beddb",
+            "type": "beddb",
+            "genomicFields": [
+              {
+                "index": 1,
+                "name": "start"
+              },
+              {
+                "index": 2,
+                "name": "end"
+              }
+            ],
+            "valueFields": [
+              {
+                "index": 3,
+                "name": "pubmedid",
+                "type": "nominal"
+              },
+              {
+                "index": 4,
+                "name": "date",
+                "type": "nominal"
+              },
+              {
+                "index": 5,
+                "name": "link",
+                "type": "nominal"
+              },
+              {
+                "index": 6,
+                "name": "pvalue",
+                "type": "quantitative"
+              },
+              {
+                "index": 8,
+                "name": "disease",
+                "type": "nominal"
+              },
+              {
+                "index": 9,
+                "name": "pvalue_log",
+                "type": "quantitative"
+              },
+              {
+                "index": 10,
+                "name": "pvalue_txt",
+                "type": "nominal"
+              }
+            ]
+          },
+          "mark": "bar",
+          "x": {
+            "field": "start",
+            "type": "genomic"
+          },
+          "y": {
+            "field": "pvalue",
+            "type": "quantitative",
+            "axis": "right",
+            "grid": true
+          },
+          "color": {
+            "value": "grey"
+          },
+          "stroke": {
+            "value": "grey"
+          },
+          "strokeWidth": {
+            "value": 0.5
+          },
+          "opacity": {
+            "value": 0.8
+          },
+          "size": {
+            "value": 3
+          }
+        },
+        {
+          "title": "BED3 - TEXT1",
+          "data": {
+            "url": "https://server.gosling-lang.org/api/v1/tileset_info/?d=gene-annotation",
+            "type": "beddb",
+            "genomicFields": [
+              {
+                "index": 1,
+                "name": "start"
+              },
+              {
+                "index": 2,
+                "name": "end"
+              }
+            ],
+            "valueFields": [
+              {
+                "index": 5,
+                "name": "strand",
+                "type": "nominal"
+              },
+              {
+                "index": 3,
+                "name": "name",
+                "type": "nominal"
+              }
+            ],
+            "exonIntervalFields": [
+              {
+                "index": 12,
+                "name": "start"
+              },
+              {
+                "index": 13,
+                "name": "end"
+              }
+            ]
+          },
+          "dataTransform": [
+             { "type":  "filter", "field": "type", "oneOf": ["gene"]},
+             { "type":  "displace", "newField": "row",  "boundingBox": { "startField": "start", "endField": "end",  "isPaddingBP": false, "padding": 20}, "method":  "pile"}
+          ],
+          "mark":  "text",
+          "text": { "field": "name", "type":  "nominal"},
+          "x": { "field": "start", "type":  "genomic"},
+          "xe": { "field": "end", "type":  "genomic"},
+          "row": { "field": "row", "type":  "nominal"},
+          "color": { "value": "gray"},
+          "width": 785,
+          "height": 100
+        }
+      ]
+    }
+  ]
+}

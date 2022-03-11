@@ -11,11 +11,97 @@
       "assembly": "hg38",
       "tracks": [
         {
-          "title": "VCF1 - QUANT1",
+          "title": "BIGWIG1 - QUANT1",
           "style": {
             "outlineWidth": 1
           },
-          "width": 704,
+          "width": 792,
+          "height": 100,
+          "data": {
+            "url": "https://resgen.io/api/v1/tileset_info/?d=UvVPeLHuRDiYA3qwFlm7xQ",
+            "type": "multivec",
+            "row": "sample",
+            "column": "position",
+            "value": "peak",
+            "categories": [
+              "0",
+              "1",
+              "2",
+              "3",
+              "4",
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10",
+              "11",
+              "12",
+              "13",
+              "14",
+              "15",
+              "16",
+              "17",
+              "18",
+              "19",
+              "20",
+              "21",
+              "22",
+              "23",
+              "24",
+              "25",
+              "26"
+            ],
+            "binSize": 4
+          },
+          "dataTransform": [
+            {
+              "type": "filter",
+              "field": "sample",
+              "oneOf": [
+                "26"
+              ],
+              "not": false
+            }
+          ],
+          "alignment": "overlay",
+          "tracks": [
+            {
+              "mark": "line"
+            },
+            {
+              "mark": "point",
+              "size": {
+                "value": 1.5
+              }
+            }
+          ],
+          "x": {
+            "field": "position",
+            "type": "genomic"
+          },
+          "y": {
+            "field": "peak",
+            "type": "quantitative",
+            "axis": "right",
+            "grid": true
+          },
+          "color": {
+            "value": "gray"
+          },
+          "size": {
+            "value": 1
+          },
+          "opacity": {
+            "value": 0.8
+          }
+        },
+        {
+          "title": "SEG1 - QUANT1",
+          "style": {
+            "outlineWidth": 1
+          },
+          "width": 792,
           "height": 100,
           "data": {
             "url": "https://server.gosling-lang.org/api/v1/tileset_info/?d=gwas-beddb",
@@ -80,10 +166,10 @@
             "grid": true
           },
           "color": {
-            "value": "gray"
+            "value": "#CC7DAA"
           },
           "stroke": {
-            "value": "gray"
+            "value": "#CC7DAA"
           },
           "strokeWidth": {
             "value": 0.5

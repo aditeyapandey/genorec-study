@@ -9,7 +9,7 @@
   };
 
   let currentTaskIndex = 0;
-  let totalTasks = 12;
+  let totalTasks = 14;
   let responseData = {};
   const mode = "test";
 

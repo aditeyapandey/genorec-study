@@ -1,0 +1,194 @@
+{
+  "style": {
+    "enableSmoothPath": true
+  },
+  "assembly": "hg38",
+  "arrangement": "horizontal",
+  "centerRadius": 0.3,
+  "spacing": 20,
+  "views": [
+    {
+      "spacing": 0.1,
+      "layout": "circular",
+      "assembly": "hg38",
+      "tracks": [
+        {
+          "title": "BIGWIG1 - QUANT1",
+          "style": {
+            "outlineWidth": 1
+          },
+          "width": 400,
+          "height": 100,
+          "data": {
+            "url": "https://resgen.io/api/v1/tileset_info/?d=UvVPeLHuRDiYA3qwFlm7xQ",
+            "type": "multivec",
+            "row": "sample",
+            "column": "position",
+            "value": "peak",
+            "categories": [
+              "0",
+              "1",
+              "2",
+              "3",
+              "4",
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10",
+              "11",
+              "12",
+              "13",
+              "14",
+              "15",
+              "16",
+              "17",
+              "18",
+              "19",
+              "20",
+              "21",
+              "22",
+              "23",
+              "24",
+              "25",
+              "26"
+            ],
+            "binSize": 4
+          },
+          "dataTransform": [
+            {
+              "type": "filter",
+              "field": "sample",
+              "oneOf": [
+                "26"
+              ],
+              "not": false
+            }
+          ],
+          "alignment": "overlay",
+          "tracks": [
+            
+            {
+              "mark": "point",
+              "size": {
+                "value": 3
+              }
+            }
+          ],
+          "x": {
+            "field": "position",
+            "type": "genomic"
+          },
+          "y": {
+            "field": "peak",
+            "type": "quantitative",
+            "axis": "right",
+            "grid": true
+          },
+          "color": {
+            "value": "gray"
+          },
+          "size": {
+            "value": 1
+          },
+          "opacity": {
+            "value": 0.8
+          }
+        }
+      ]
+    },
+     {
+       "spacing": 0.1,
+      "layout": "circular",
+      "assembly": "hg38",
+      "tracks": [
+        {
+          "title": "SEG1 - QUANT1",
+          "style": {
+            "outlineWidth": 1
+          },
+          "width": 400,
+          "height": 100,
+          "data": {
+            "url": "https://server.gosling-lang.org/api/v1/tileset_info/?d=gwas-beddb",
+            "type": "beddb",
+            "genomicFields": [
+              {
+                "index": 1,
+                "name": "start"
+              },
+              {
+                "index": 2,
+                "name": "end"
+              }
+            ],
+            "valueFields": [
+              {
+                "index": 3,
+                "name": "pubmedid",
+                "type": "nominal"
+              },
+              {
+                "index": 4,
+                "name": "date",
+                "type": "nominal"
+              },
+              {
+                "index": 5,
+                "name": "link",
+                "type": "nominal"
+              },
+              {
+                "index": 6,
+                "name": "pvalue",
+                "type": "quantitative"
+              },
+              {
+                "index": 8,
+                "name": "disease",
+                "type": "nominal"
+              },
+              {
+                "index": 9,
+                "name": "pvalue_log",
+                "type": "quantitative"
+              },
+              {
+                "index": 10,
+                "name": "pvalue_txt",
+                "type": "nominal"
+              }
+            ]
+          },
+          "mark": "point",
+          "x": {
+            "field": "start",
+            "type": "genomic"
+          },
+          "y": {
+            "field": "pvalue",
+            "type": "quantitative",
+            "axis": "right",
+            "grid": true
+          },
+          "color": {
+            "value": "#CC7DAA"
+          },
+          "stroke": {
+            "value": "#CC7DAA"
+          },
+          "strokeWidth": {
+            "value": 0.5
+          },
+          "opacity": {
+            "value": 0.8
+          },
+          "size": {
+            "value": 3
+          }
+        }
+      ]
+    }
+  ]
+}

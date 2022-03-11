@@ -47,16 +47,31 @@
               }
             ]
           },
+          "alignment": "overlay",
           "dataTransform": [
-             { "type":  "filter", "field": "type", "oneOf": ["gene"]},
-             { "type":  "displace", "newField": "row",  "boundingBox": { "startField": "start", "endField": "end",  "isPaddingBP": false, "padding": 20}, "method":  "pile"}
+            {  "type": "filter", "oneOf": ["gene"], "field": "type"},
+                { "type":  "displace", "method":  "pile", "boundingBox": { "startField": "start", "endField": "end", "padding": 20, "isPaddingBP": false}, "newField": "row"}
+              ],
+          "tracks": [
+            {
+              "mark":  "rect",
+              "stroke": { "field": "strand", "type":  "nominal"},
+          "strokeWidth": { "value": 2 }
+            },
+            {
+              
+              "mark":  "text",
+              "color": { "value": "black"},
+              "stroke": { "value": "white"},
+              "strokeWidth": { "value": 1},
+              "row": { "field": "row", "type": "nominal"}
+            }
           ],
-          "mark":  "text",
+          
+          "color": { "field": "strand", "type":  "nominal"},
           "text": { "field": "name", "type":  "nominal"},
           "x": { "field": "start", "type":  "genomic"},
           "xe": { "field": "end", "type":  "genomic"},
-          "row": { "field": "row", "type":  "nominal"},
-          "color": { "value": "gray"},
           "width": 785,
           "height": 100
         }
