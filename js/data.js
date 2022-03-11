@@ -4,64 +4,23 @@ window.data = {
       id: 1,
       dataDescription: [
         {
-          fileFormat: "BIGWIG",
-          attributes: "1 Quantitative",
-          featureExtent: "Point",
-          featureDensity: "Contiguous",
-        },
-        {
-          fileFormat: "BIGWIG",
+          fileFormat: "VCF",
           attributes: "1 Quantitative",
           featureExtent: "Point",
           featureDensity: "Contiguous",
         },
       ],
-      taskDescription: "Get an overview of the entire genome.",
+      taskDescription:
+        "Identify regions with high or low values of quantitative score across genomes",
       stimuli: [
         {
           output: "genorec",
-          spec: {
-            tracks: [
-              {
-                data: {
-                  url: "https://server.gosling-lang.org/api/v1/tileset_info/?d=cistrome-multivec",
-                  type: "multivec",
-                  row: "sample",
-                  column: "position",
-                  value: "peak",
-                  categories: ["sample 1", "sample 2"],
-                },
-                mark: "bar",
-                x: { field: "position", type: "genomic", axis: "top" },
-                y: { field: "peak", type: "quantitative" },
-                row: { field: "sample", type: "nominal" },
-                color: { field: "sample", type: "nominal", legend: true },
-              },
-            ],
-          },
+          spec: "1_g_spec.json"
         },
         {
-            output: "random",
-            spec: {
-              tracks: [
-                {
-                  data: {
-                    url: "https://server.gosling-lang.org/api/v1/tileset_info/?d=cistrome-multivec",
-                    type: "multivec",
-                    row: "sample",
-                    column: "position",
-                    value: "peak",
-                    categories: ["sample 1", "sample 2"],
-                  },
-                  mark: "line",
-                  x: { field: "position", type: "genomic", axis: "top" },
-                  y: { field: "peak", type: "quantitative" },
-                  row: { field: "sample", type: "nominal" },
-                  color: { field: "sample", type: "nominal", legend: true },
-                },
-              ],
-            },
-          },
+          output: "random",
+          spec: "1_a_spec.json"
+        },
       ],
     },
     {
@@ -74,52 +33,17 @@ window.data = {
           featureDensity: "Contiguous",
         },
       ],
-      taskDescription: "Identify and analyze a region of interest in the genome.",
+      taskDescription:
+        "Identify and analyze a region of interest in the genome.",
       stimuli: [
         {
           output: "genorec",
-          spec: {
-            tracks: [
-              {
-                data: {
-                  url: "https://server.gosling-lang.org/api/v1/tileset_info/?d=cistrome-multivec",
-                  type: "multivec",
-                  row: "sample",
-                  column: "position",
-                  value: "peak",
-                  categories: ["sample 1"],
-                },
-                mark: "point",
-                x: { field: "position", type: "genomic", axis: "top" },
-                y: { field: "peak", type: "quantitative" },
-                row: { field: "sample", type: "nominal" },
-                color: { field: "sample", type: "nominal", legend: true },
-              },
-            ],
-          },
+          spec: "1_g_spec.json"
         },
         {
-            output: "random",
-            spec: {
-              tracks: [
-                {
-                  data: {
-                    url: "https://server.gosling-lang.org/api/v1/tileset_info/?d=cistrome-multivec",
-                    type: "multivec",
-                    row: "sample",
-                    column: "position",
-                    value: "peak",
-                    categories: ["sample 1"],
-                  },
-                  mark: "line",
-                  x: { field: "position", type: "genomic", axis: "top" },
-                  y: { field: "peak", type: "quantitative" },
-                  row: { field: "sample", type: "nominal" },
-                  color: { field: "sample", type: "nominal", legend: true },
-                },
-              ],
-            },
-          },
+          output: "random",
+          spec: "1_a_spec.json"
+        },
       ],
     },
   ],

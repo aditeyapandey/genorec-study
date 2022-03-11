@@ -1,0 +1,99 @@
+{
+  "style": {
+    "enableSmoothPath": true
+  },
+  "assembly": "hg38",
+  "arrangement": "vertical",
+  "centerRadius": 0.3,
+  "views": [
+    {
+      "layout": "linear",
+      "assembly": "hg38",
+      "tracks": [
+        {
+          "title": "VCF1 - QUANT1",
+          "style": {
+            "outlineWidth": 1
+          },
+          "width": 704,
+          "height": 100,
+          "data": {
+            "url": "https://server.gosling-lang.org/api/v1/tileset_info/?d=gwas-beddb",
+            "type": "beddb",
+            "genomicFields": [
+              {
+                "index": 1,
+                "name": "start"
+              },
+              {
+                "index": 2,
+                "name": "end"
+              }
+            ],
+            "valueFields": [
+              {
+                "index": 3,
+                "name": "pubmedid",
+                "type": "nominal"
+              },
+              {
+                "index": 4,
+                "name": "date",
+                "type": "nominal"
+              },
+              {
+                "index": 5,
+                "name": "link",
+                "type": "nominal"
+              },
+              {
+                "index": 6,
+                "name": "pvalue",
+                "type": "nominal"
+              },
+              {
+                "index": 8,
+                "name": "disease",
+                "type": "nominal"
+              },
+              {
+                "index": 9,
+                "name": "pvalue_log",
+                "type": "nominal"
+              },
+              {
+                "index": 10,
+                "name": "pvalue_txt",
+                "type": "nominal"
+              }
+            ]
+          },
+          "mark": "text",
+          "x": {
+            "field": "start",
+            "type": "genomic"
+          },
+          "text": {
+            "field": "pvalue_log",
+            "type": "nominal"
+          },
+          "color": {
+            "value": "gray"
+          },
+          "stroke": {
+            "value": "gray"
+          },
+          "strokeWidth": {
+            "value": 0.5
+          },
+          "opacity": {
+            "value": 0.8
+          },
+          "size": {
+            "value": 19
+          }
+        }
+      ]
+    }
+  ]
+}

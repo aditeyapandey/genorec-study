@@ -4,11 +4,10 @@
     5: "5 - Yes, I would use this visualization",
     4: "4 - Yes, but with minor modifications",
     3: "3 - Unsure",
-    2: "2 - No, this needs major modifications",
+    2: "2 - No, not without major modifications",
     1: "1 - No, I would not use this visualization"
   };
-  //"5 - Yes, this is optimal",
-  //1: "1 - No, I would not accept this visualization"
+
   let currentTaskIndex = 0;
   let totalTasks = 12;
   let responseData = {};
@@ -63,12 +62,15 @@
     let stimuliShuffled = _.shuffle(stimuli);
 
     //Render stimuli
-    createStimuli(
-      stimuliShuffled[0]["spec"],
-      index,
-      stimuliShuffled[0]["output"],
-      0
-    );
+    d3.json("jsonspec/"+stimuliShuffled[0]["spec"]).then(data=>{
+      console.log(data);
+      createStimuli(
+        data,
+        index,
+        stimuliShuffled[0]["output"],
+        0
+      );
+    })
 
     //Create Next Vis Button
     $("#nextStimuli").addClass("disabledBtnParent");
@@ -78,12 +80,16 @@
     );
 
     $("#nextStimuliBtn").on("click", function () {
-      createStimuli(
-        stimuliShuffled[1]["spec"],
-        index,
-        stimuliShuffled[1]["output"],
-        1
-      );
+      d3.json("jsonspec/"+stimuliShuffled[1]["spec"]).then(data=>{
+        console.log(data);
+        createStimuli(
+          data,
+          index,
+          stimuliShuffled[1]["output"],
+          1
+        );
+      })
+
     });
   }
 
