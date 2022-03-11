@@ -5,16 +5,25 @@
     4: "4 - Yes, but with minor modifications",
     3: "3 - Unsure",
     2: "2 - No, not without major modifications",
-    1: "1 - No, I would not use this visualization"
+    1: "1 - No, I would not use this visualization",
   };
 
   let currentTaskIndex = 0;
   let totalTasks = 12;
   let responseData = {};
+  const mode = "test";
 
   //Read data
   const data = window.data;
   createTask(data, currentTaskIndex);
+
+  // select box
+  $("select").change(function () {
+    var optionSelected = $(this).find("option:selected");
+    var valueSelected = optionSelected.val();
+    clear();
+    createTask(data, valueSelected - 1);
+  });
 
   function createTask(data, index) {
     //Add task header
@@ -62,34 +71,31 @@
     let stimuliShuffled = _.shuffle(stimuli);
 
     //Render stimuli
-    d3.json("jsonspec/"+stimuliShuffled[0]["spec"]).then(data=>{
+    d3.json("jsonspec/" + stimuliShuffled[0]["spec"]).then((data) => {
       console.log(data);
-      createStimuli(
-        data,
-        index,
-        stimuliShuffled[0]["output"],
-        0
-      );
-    })
+      createStimuli(data, index, stimuliShuffled[0]["output"], 0);
+    });
 
     //Create Next Vis Button
-    $("#nextStimuli").addClass("disabledBtnParent");
+    if(mode!=="test")
+    {
+      $("#nextStimuli").addClass("disabledBtnParent");
 
-    $("#nextStimuli").append(
-      ` <button type="button" id="nextStimuliBtn" class=" btn btn-secondary btn-sm disabledBtn"> Next Stimuli </button>`
-    );
+      $("#nextStimuli").append(
+        ` <button type="button" id="nextStimuliBtn" class=" btn btn-secondary btn-sm disabledBtn"> Next Stimuli </button>`
+      );
+    }
+    else{
+      $("#nextStimuli").append(
+        ` <button type="button" id="nextStimuliBtn" class=" btn btn-secondary btn-sm"> Next Stimuli </button>`
+      );
+    }
 
     $("#nextStimuliBtn").on("click", function () {
-      d3.json("jsonspec/"+stimuliShuffled[1]["spec"]).then(data=>{
+      d3.json("jsonspec/" + stimuliShuffled[1]["spec"]).then((data) => {
         console.log(data);
-        createStimuli(
-          data,
-          index,
-          stimuliShuffled[1]["output"],
-          1
-        );
-      })
-
+        createStimuli(data, index, stimuliShuffled[1]["output"], 1);
+      });
     });
   }
 
@@ -105,19 +111,26 @@
     $("#responseInput").empty();
     $("#stimuliId").empty();
 
-
     //Add Vis after changing dimension
-    visSpec["width"] = $(".stimuliContainer").width()*0.90;
+    visSpec["width"] = $(".stimuliContainer").width() * 0.9;
     gosling.embed(document.getElementById("vis"), visSpec);
 
-    $("#stimuliId").append(`<p> Stimuli ${stimuliIndex+1}/2 </p>`);
+    if(mode!=="test")
+    {
+    $("#stimuliId").append(`<p> Stimuli ${stimuliIndex + 1}/2 </p>`);
+    }
+    else{
+      $("#stimuliId").append(`<p> Stimuli: ${stimuliId} </p>`);
 
+    }
 
     //Create Response Options
     let responseOptionsHTML = "";
-    Object.keys(responseInputLabels).sort((a,b) => b-a).forEach((val) => {
-      responseOptionsHTML = responseOptionsHTML.concat(
-        `<div class="form-check">
+    Object.keys(responseInputLabels)
+      .sort((a, b) => b - a)
+      .forEach((val) => {
+        responseOptionsHTML = responseOptionsHTML.concat(
+          `<div class="form-check">
          <input
           class="form-check-input"
           type="radio"
@@ -128,8 +141,8 @@
         <label class="form-check-label" for="flexRadioDefault${val}">${responseInputLabels[val]}</label>
         </div>
         `
-      );
-    });
+        );
+      });
     $("#responseInput").append(responseOptionsHTML);
 
     //Register an event listener

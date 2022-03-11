@@ -11,7 +11,7 @@
         {
           "title": "VCF1 - QUANT1",
           "style": { "outlineWidth": 1 },
-          "width": 704,
+          "width": 785,
           "height": 100,
           "data": {
             "url": "https://server.gosling-lang.org/api/v1/tileset_info/?d=gwas-beddb",

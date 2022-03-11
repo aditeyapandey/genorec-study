@@ -26,7 +26,6 @@
     <!-- Font-awesome -->
     <script src="https://use.fontawesome.com/d499b625d3.js"></script>
 
-
     <!-- Jquery + Bootstrap -->
     <script
       src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
@@ -68,15 +67,13 @@
 
     <!-- Underscore.js -->
     <script
-    crossorigin
-    type="text/javascript"
-    src="https://cdn.jsdelivr.net/npm/underscore@1.13.2/underscore-umd-min.js"
-  ></script>
+      crossorigin
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/underscore@1.13.2/underscore-umd-min.js"
+    ></script>
 
-  <!-- d3.js for reading files -->
-  <script src="https://d3js.org/d3.v7.min.js"></script>
-
-
+    <!-- d3.js for reading files -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
   </head>
   <body>
     <div class="header">
@@ -86,24 +83,32 @@
           <!-- <a class="nav-link active" href="#">Help</a> -->
         </li>
       </ul>
+
+      <label for="cars">Choose a task:</label>
+
+      <select name="cars" id="cars">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+
+      </select>
     </div>
     <div class="study container">
       <div class="studyHeader container">
         <div class="col-12 float-right progressContainer">
-          <div class="progress" id="progressBar">
-          </div>
-          <div class="col-12 text-center" id="taskHeader">
-          </div>
+          <div class="progress" id="progressBar"></div>
+          <div class="col-12 text-center" id="taskHeader"></div>
         </div>
 
-        <div class="col-12" id="dataDescription">
-
-        </div>
+        <div class="col-12" id="dataDescription"></div>
         <div class="col-12 py-3" id="taskDescription">
-
-          
-            <!-- <h3>This is the task description</h3> -->
-          </div>
+          <!-- <h3>This is the task description</h3> -->
+        </div>
       </div>
       <div class="stimuliContainer">
         <div class="row" id="vis"></div>
@@ -114,19 +119,16 @@
       <div class="responses container">
         <div class="row" id="responseQuestion">
           <h5>
-            I would use this visualization for the analysis
-            of the data given the task description.
+            I would use this visualization for the analysis of the data given
+            the task description.
           </h5>
         </div>
-        <div class="" id="responseInput">
-        </div>
-        <div id="nextStimuli" class="row float-right">
-        </div>
+        <div class="" id="responseInput"></div>
+        <div id="nextStimuli" class="row float-right"></div>
       </div>
     </div>
-    <div class="control container ">
-        <div id="nextTaskBtn" class="row col-12 float-right">
-        </div>
+    <div class="control container">
+      <div id="nextTaskBtn" class="row col-12 float-right"></div>
     </div>
 
     <script src="js/data.js" async defer></script>

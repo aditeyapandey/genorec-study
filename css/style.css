@@ -7,3 +7,9 @@
     opacity: 20%;
     pointer-events: none;
 }
+
+.stimuliContainer{
+    height:400px;
+    overflow: auto;
+    overflow-x: hidden;
+}
