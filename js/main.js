@@ -58,6 +58,8 @@
       $("#" + id).append(`<h6>Attributes: ${val["attributes"]}</h6>`);
       $("#" + id).append(`<h6>Extent: ${val["featureExtent"]}</h6>`);
       $("#" + id).append(`<h6>Density: ${val["featureDensity"]}</h6>`);
+      $("#" + id).append(`<h6>Connection: ${val["connection"]}</h6>`);
+
     });
 
     $("#taskDescription").append(
