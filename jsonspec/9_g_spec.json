@@ -65,7 +65,6 @@
           },
           "strokeWidth": {"value": 1},
           "opacity": {"value": 0.6},
-          // "style": {"legendTitle": "SV Class"},
           "width": 500,
           "height": 100
         },

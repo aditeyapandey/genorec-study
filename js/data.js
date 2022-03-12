@@ -11,7 +11,7 @@ window.data = {
         },
       ],
       taskDescription:
-        "Identify regions with high or low values of quantitative score across genomes",
+        "Identify regions with high or low values of quantitative attribute.",
       stimuli: [
         {
           output: "genorec",
@@ -34,7 +34,7 @@ window.data = {
         },
       ],
       taskDescription:
-        "Identify and analyze a region of interest in the genome.",
+        "Analyze inter-chromosomal connections.",
       stimuli: [
         {
           output: "genorec",
@@ -57,7 +57,7 @@ window.data = {
         },
       ],
       taskDescription:
-        "Identify chromosomes with more interconnections.",
+        "Analyze inter-chromosomal connections.",
       stimuli: [
         {
           output: "genorec",
@@ -80,7 +80,7 @@ window.data = {
         },
       ],
       taskDescription:
-        "Identify repeating patterns in the genome.",
+        "Identify patterns in the genome.",
       stimuli: [
         {
           output: "genorec",
@@ -103,7 +103,7 @@ window.data = {
         }
       ],
       taskDescription:
-        "Look for a specific gene in the genome",
+        "Find the location of a specific gene.",
       stimuli: [
         {
           output: "genorec",
@@ -132,7 +132,7 @@ window.data = {
         }
       ],
       taskDescription:
-        "Analyze values in a specific region of the genome",
+        "Analyze values in a specific region of the genome.",
       stimuli: [
         {
           output: "genorec",
@@ -184,7 +184,7 @@ window.data = {
         }
       ],
       taskDescription:
-        "Identify the region with highest value in chromosome 3?",
+        "Identify the highest value in chromosome 3.",
       stimuli: [
         {
           output: "genorec",
@@ -242,7 +242,7 @@ window.data = {
         }
       ],
       taskDescription:
-        "Find the areas where scores in are similar in the two attributes.",
+        "Find the areas in the genome where both quantitative attributes have high values.",
       stimuli: [
         {
           output: "genorec",
@@ -277,7 +277,7 @@ window.data = {
         }
       ],
       taskDescription:
-        "Look for a specific gene in the genome",
+        "Read categorical, quantitative and text values for a specific location.",
       stimuli: [
         {
           output: "genorec",
@@ -330,7 +330,7 @@ window.data = {
         },
       ],
       taskDescription:
-        "Identify the interchromosomal connection between regions.",
+        "Identify inter-chromosomal connectivity between high value regions.",
       stimuli: [
         {
           output: "genorec",
@@ -365,7 +365,7 @@ window.data = {
         }
       ],
       taskDescription:
-        "Look for a specific gene in the genome",
+        "Identify areas of high connectivity.",
       stimuli: [
         {
           output: "genorec",
