@@ -46,11 +46,11 @@ window.data = {
       stimuli: [
         {
           output: "genorec",
-          spec: "1_g_spec.json",
+          spec: "2_g_spec.json",
         },
         {
           output: "random",
-          spec: "1_a_spec.json",
+          spec: "2_a_spec.json",
         },
       ],
     },
@@ -224,7 +224,7 @@ window.data = {
           connection: "No",
         },
       ],
-      taskDescription: "Find regions which contain similar categorical data",
+      taskDescription: "Identify regions with maximum combined data density.",
       stimuli: [
         {
           output: "genorec",
@@ -316,7 +316,7 @@ window.data = {
           connection: "No",
         },
       ],
-      taskDescription: "Look for a specific gene in the genome",
+      taskDescription: "Overview ?",
       stimuli: [
         {
           output: "genorec",

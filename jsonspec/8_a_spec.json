@@ -4,7 +4,8 @@
   },
   "assembly": "hg38",
   "arrangement": "vertical",
-  "centerRadius": 0.3,
+  "centerRadius": 0.5,
+  "layout": "circular",
   "views": [
     {
       "tracks": [
@@ -149,10 +150,7 @@
             "value": 0.8
           }
         }
-      ],
-      "xDomain": {
-        "chromosome": "chr1"
-      }
+      ]
     }
   ]
 }
