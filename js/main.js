@@ -22,7 +22,8 @@
     var optionSelected = $(this).find("option:selected");
     var valueSelected = optionSelected.val();
     clear();
-    createTask(data, valueSelected-1 );
+    currentTaskIndex = valueSelected - 1;
+    createTask(data, currentTaskIndex);
   });
 
   function createTask(data, index) {
@@ -36,7 +37,7 @@
     aria-valuenow=${0}
     aria-valuemin=${totalTasks}
     aria-valuemax=${14}
-    style="width: ${((index+1) / totalTasks) * 100}%"></div>`);
+    style="width: ${((index + 1) / totalTasks) * 100}%"></div>`);
 
     //Create Data Description
     let dataDescriptionObj = data["tasks"][index]["dataDescription"];
@@ -59,7 +60,6 @@
       $("#" + id).append(`<h6>Extent: ${val["featureExtent"]}</h6>`);
       $("#" + id).append(`<h6>Density: ${val["featureDensity"]}</h6>`);
       $("#" + id).append(`<h6>Connection: ${val["connection"]}</h6>`);
-
     });
 
     $("#taskDescription").append(
@@ -74,20 +74,17 @@
 
     //Render stimuli
     d3.json("jsonspec/" + stimuliShuffled[0]["spec"]).then((data) => {
-      console.log(data);
       createStimuli(data, index, stimuliShuffled[0]["output"], 0);
     });
 
     //Create Next Vis Button
-    if(mode!=="test")
-    {
+    if (mode !== "test") {
       $("#nextStimuli").addClass("disabledBtnParent");
 
       $("#nextStimuli").append(
         ` <button type="button" id="nextStimuliBtn" class=" btn btn-secondary btn-sm disabledBtn"> Next Stimuli </button>`
       );
-    }
-    else{
+    } else {
       $("#nextStimuli").append(
         ` <button type="button" id="nextStimuliBtn" class=" btn btn-secondary btn-sm"> Next Stimuli </button>`
       );
@@ -96,7 +93,7 @@
     $("#nextStimuliBtn").on("click", function () {
       d3.json("jsonspec/" + stimuliShuffled[1]["spec"]).then((data) => {
         console.log(data);
-        
+
         createStimuli(data, index, stimuliShuffled[1]["output"], 1);
       });
     });
@@ -118,13 +115,10 @@
     visSpec["width"] = $(".stimuliContainer").width() * 0.9;
     gosling.embed(document.getElementById("vis"), visSpec);
 
-    if(mode!=="test")
-    {
-    $("#stimuliId").append(`<p> Stimuli ${stimuliIndex + 1}/2 </p>`);
-    }
-    else{
+    if (mode !== "test") {
+      $("#stimuliId").append(`<p> Stimuli ${stimuliIndex + 1}/2 </p>`);
+    } else {
       $("#stimuliId").append(`<p> Stimuli: ${stimuliId} </p>`);
-
     }
 
     //Create Response Options
@@ -173,9 +167,21 @@
       );
 
       $("#nextTaskBtn").on("click", function () {
-        clear();
         currentTaskIndex++;
-        createTask(data, currentTaskIndex);
+        if (!checkLastTask(currentTaskIndex)) {
+          clear();
+          createTask(data, currentTaskIndex);
+        } else {
+          // clear();
+          $('.study').css('display', 'none');
+          $('.finalMessage').css('visibility', 'visible');
+          var data =
+            "text/json;charset=utf-8," +
+            encodeURIComponent(JSON.stringify(responseData));
+          $(
+            '<a href="data:' + data + '" download="data.json">Download Data</a>'
+          ).appendTo(".downloadBtn");
+        }
       });
     }
   }
@@ -187,5 +193,14 @@
     $("#dataDescription").empty();
     $("#taskDescription").empty();
     $("#progressBar").empty();
+    $("#responseInput").empty();
+    $("#stimuliId").empty();
+  }
+
+  function checkLastTask(taskIndex) {
+    if (taskIndex === totalTasks) {
+      return true;
+    }
+    return false;
   }
 })();
