@@ -22,7 +22,7 @@
     var optionSelected = $(this).find("option:selected");
     var valueSelected = optionSelected.val();
     clear();
-    createTask(data, valueSelected - 1);
+    createTask(data, valueSelected-1 );
   });
 
   function createTask(data, index) {
@@ -35,8 +35,8 @@
     role="progressbar"
     aria-valuenow=${0}
     aria-valuemin=${totalTasks}
-    aria-valuemax=${12}
-    style="width: ${(index / totalTasks) * 100}%"></div>`);
+    aria-valuemax=${14}
+    style="width: ${((index+1) / totalTasks) * 100}%"></div>`);
 
     //Create Data Description
     let dataDescriptionObj = data["tasks"][index]["dataDescription"];
@@ -96,6 +96,7 @@
     $("#nextStimuliBtn").on("click", function () {
       d3.json("jsonspec/" + stimuliShuffled[1]["spec"]).then((data) => {
         console.log(data);
+        
         createStimuli(data, index, stimuliShuffled[1]["output"], 1);
       });
     });

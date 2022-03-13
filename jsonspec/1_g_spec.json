@@ -15,8 +15,8 @@
           "style": {
             "outlineWidth": 1
           },
-          "width": 704,
-          "height": 100,
+          "width": 900,
+          "height": 200,
           "data": {
             "url": "https://server.gosling-lang.org/api/v1/tileset_info/?d=gwas-beddb",
             "type": "beddb",
