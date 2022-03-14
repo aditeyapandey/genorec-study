@@ -105,7 +105,7 @@
           "style": {
             "outline": "black"
           },
-          "width": 1146,
+          "width": 900,
           "height": 20
         }
       ]
@@ -127,7 +127,7 @@
               "style": {
                 "outlineWidth": 1
               },
-              "width": 563,
+              "width": 450,
               "height": 100,
               "data": {
                 "url": "https://resgen.io/api/v1/tileset_info/?d=UvVPeLHuRDiYA3qwFlm7xQ",
@@ -286,7 +286,7 @@
               "style": {
                 "outlineWidth": 1
               },
-              "width": 563,
+              "width": 450,
               "height": 100,
               "data": {
                 "url": "https://resgen.io/api/v1/tileset_info/?d=UvVPeLHuRDiYA3qwFlm7xQ",
@@ -358,7 +358,7 @@
               "style": {
                 "outlineWidth": 1
               },
-              "width": 563,
+              "width": 450,
               "height": 100,
               "data": {
                 "url": "https://resgen.io/api/v1/tileset_info/?d=UvVPeLHuRDiYA3qwFlm7xQ",
@@ -517,7 +517,7 @@
               "style": {
                 "outlineWidth": 1
               },
-              "width": 563,
+              "width": 450,
               "height": 100,
               "data": {
                 "url": "https://resgen.io/api/v1/tileset_info/?d=UvVPeLHuRDiYA3qwFlm7xQ",

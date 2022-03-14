@@ -65,16 +65,16 @@
           },
           "strokeWidth": {"value": 1},
           "opacity": {"value": 0.6},
-          "width": 500,
-          "height": 100
+          "width": 200,
+          "height": 80
         },
         {
           "title": "BED2 - CAT1",
           "style": {
             "outlineWidth": 1
           },
-          "width": 710,
-          "height": 100,
+          "width": 380,
+          "height": 80,
           "data": {
             "url": "https://server.gosling-lang.org/api/v1/tileset_info/?d=gwas-beddb",
             "type": "beddb",

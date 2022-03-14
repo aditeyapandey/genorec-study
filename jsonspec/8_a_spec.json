@@ -14,8 +14,8 @@
           "style": {
             "outlineWidth": 1
           },
-          "width": 785,
-          "height": 100,
+          "width": 380,
+          "height": 80,
           "data": {
             "url": "https://resgen.io/api/v1/tileset_info/?d=UvVPeLHuRDiYA3qwFlm7xQ",
             "type": "multivec",

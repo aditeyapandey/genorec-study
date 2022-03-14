@@ -16,7 +16,7 @@
             "outlineWidth": 1
           },
           "width": 500,
-          "height": 500,
+          "height": 300,
           "data": {
             "url": "https://s3.amazonaws.com/gosling-lang.org/data/cancer/rearrangement.PD35930a.csv",
             "type": "csv",
@@ -76,7 +76,7 @@
             "outlineWidth": 1
           },
           "width": 500,
-          "height": 100,
+          "height": 50,
           "data": {
             "url": "https://server.gosling-lang.org/api/v1/tileset_info/?d=gwas-beddb",
             "type": "beddb",

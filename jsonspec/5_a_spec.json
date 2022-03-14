@@ -1,6 +1,7 @@
 {
   "style": {
-    "enableSmoothPath": true
+    "enableSmoothPath": true,
+    "inlineLegend":true
   },
   "assembly": "hg38",
   "arrangement": "vertical",
@@ -54,8 +55,8 @@
           "xe": { "field": "end", "type":  "genomic"},
           "stroke": { "field": "name", "type":  "nominal"},
           "strokeWidth": { "value": 2 },
-          "width": 785,
-          "height": 100
+          "width": 380,
+          "height": 80
         }
       ]
     }

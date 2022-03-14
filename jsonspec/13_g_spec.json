@@ -16,7 +16,7 @@
             "outlineWidth": 1
           },
           "width": 710,
-          "height": 100,
+          "height": 260,
           "data": {
             "url": "https://s3.amazonaws.com/gosling-lang.org/data/cancer/rearrangement.PD35930a.csv",
             "type": "csv",

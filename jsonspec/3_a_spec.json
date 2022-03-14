@@ -15,8 +15,8 @@
           "style": {
             "outlineWidth": 1
           },
-          "width": 400,
-          "height": 400,
+          "width": 360,
+          "height": 360,
           "data": {
             "url": "https://raw.githubusercontent.com/sehilyi/gemini-datasets/master/data/circos-segdup-edited.txt",
             "type": "csv",
