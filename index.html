@@ -75,15 +75,26 @@
 
     <!-- d3.js for reading files -->
     <script src="https://d3js.org/d3.v7.min.js"></script>
+
+    <!-- Bootstrap js -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <div class="header">
-      <!-- <ul class="nav">
+      <ul class="nav">
         <li class="nav-item">
-          <a class="nav-link active" href="#">GenoRec Study</a>
-          <-- <a class="nav-link active" href="#">Help</a> -->
-        <!-- </li>
-      </ul> -->
+          <a
+            class="nav-link active"
+            target="_blank"
+            href="https://docs.google.com/presentation/d/1holhONOuFtzGbGTOVlxECGR1hWW8bPUW_cWjs-NL0V8/edit?usp=sharing"
+            >Instructions</a
+          >
+        </li>
+      </ul>
 
       <label for="cars">Choose a task:</label>
 
@@ -138,11 +149,10 @@
     <div class="control container">
       <div id="nextTaskBtn" class="row col-12 float-right"></div>
     </div>
-    <div class="finalMessage container" style="visibility:hidden;">
-      <h5> Thank you for completing the study. </h5>
-      <h6> Please download the responses and send it to the interviewer.</h6>
-      <div class="downloadBtn"> </div> 
-    
+    <div class="finalMessage container" style="visibility: hidden">
+      <h5>Thank you for completing the study.</h5>
+      <h6>Please download the responses and send it to the interviewer.</h6>
+      <div class="downloadBtn"></div>
     </div>
 
     <script src="js/data.js" async defer></script>

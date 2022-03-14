@@ -4,7 +4,7 @@
   },
   "assembly": "hg38",
   "arrangement": "vertical",
-  "centerRadius": 0.6,
+  "centerRadius": 0.4,
   "views": [
     {
       "spacing": 10,
@@ -17,8 +17,8 @@
           "style": {
             "outlineWidth": 1
           },
-          "width": 710,
-          "height": 100,
+          "width": 380,
+          "height": 80,
           "data": {
             "url": "https://server.gosling-lang.org/api/v1/tileset_info/?d=gwas-beddb",
             "type": "beddb",
@@ -146,8 +146,8 @@
           },
           "strokeWidth": {"value": 1},
           "opacity": {"value": 0.6},
-          "width": 500,
-          "height": 100
+          "width": 200,
+          "height": 60
         }
       ]
     }

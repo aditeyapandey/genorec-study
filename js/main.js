@@ -1,3 +1,9 @@
+//Feature List
+//Allow moving back to the stimuli and updating the score
+//Adding the task id in the response score
+//Randomizing the tasks after first three tasks
+//Make the last button as the end study button
+
 (function () {
   // Global Variables
   const responseInputLabels = {
@@ -14,7 +20,7 @@
   const mode = "test";
 
   //Read data
-  const data = window.data;
+  let data = window.data;
   createTask(data, currentTaskIndex);
 
   // select box
@@ -92,8 +98,6 @@
 
     $("#nextStimuliBtn").on("click", function () {
       d3.json("jsonspec/" + stimuliShuffled[1]["spec"]).then((data) => {
-        console.log(data);
-
         createStimuli(data, index, stimuliShuffled[1]["output"], 1);
       });
     });
@@ -114,6 +118,10 @@
     //Add Vis after changing dimension
     visSpec["width"] = $(".stimuliContainer").width() * 0.9;
     gosling.embed(document.getElementById("vis"), visSpec);
+
+    $(".gosling-component").css("padding","0px")
+    $(".gosling-component").css("margin","auto")
+
 
     if (mode !== "test") {
       $("#stimuliId").append(`<p> Stimuli ${stimuliIndex + 1}/2 </p>`);
@@ -170,7 +178,7 @@
         currentTaskIndex++;
         if (!checkLastTask(currentTaskIndex)) {
           clear();
-          createTask(data, currentTaskIndex);
+          createTask(window.data, currentTaskIndex);
         } else {
           // clear();
           $('.study').css('display', 'none');
