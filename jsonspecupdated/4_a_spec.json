@@ -1,388 +1,63 @@
 {
   "style": {
-    "enableSmoothPath": true
+    "enableSmoothPath": true,
+    "inlineLegend":true
   },
   "assembly": "hg38",
   "arrangement": "vertical",
-  "centerRadius": 0.5,
-  "layout": "circular",
+  "centerRadius": 0.7,
   "views": [
     {
-      "arrangement": "horizontal",
-      "views": [
+      "layout": "circular",
+      "assembly": "hg38",
+      "tracks": [
         {
-          "assembly": "hg38",
-          "xDomain": {
-            "chromosome": "1"
-          },
-          "tracks": [
-            {
-              "title": "BIGWIG1 - QUANT1",
-              "style": {
-                "outlineWidth": 1
+          "title": "BED",
+          "data": {
+            "url": "https://server.gosling-lang.org/api/v1/tileset_info/?d=gene-annotation",
+            "type": "beddb",
+            "genomicFields": [
+              {
+                "index": 1,
+                "name": "start"
               },
-              "width": 333,
-              "height": 333,
-              "data": {
-                "url": "https://resgen.io/api/v1/tileset_info/?d=UvVPeLHuRDiYA3qwFlm7xQ",
-                "type": "multivec",
-                "row": "sample",
-                "column": "position",
-                "value": "peak",
-                "categories": [
-              "0",
-              "1",
-              "2",
-              "3",
-              "4",
-              "5",
-              "6",
-              "7",
-              "8",
-              "9",
-              "10",
-              "11",
-              "12",
-              "13",
-              "14",
-              "15",
-              "16",
-              "17",
-              "18",
-              "19",
-              "20",
-              "61",
-              "62",
-              "63",
-              "64",
-              "65",
-              "66",
-              "67",
-              "69",
-              "40",
-              "41",
-              "42",
-              "43",
-              "44",
-              "45",
-              "46",
-              "47",
-              "48",
-              "49",
-              "31",
-              "32",
-              "33",
-              "34",
-              "35",
-              "36",
-              "37",
-              "38",
-              "39",
-              "51",
-              "52",
-              "53",
-              "54",
-              "55",
-              "56",
-              "57",
-              "58",
-              "59"
-                ],
-                "binSize": 2,
-                "aggregation":  "mean"
-              },
-              "dataTransform": [
-                {
-                  "type": "filter",
-                  "field": "sample",
-                  "oneOf": [
-                    "4"
-                  ],
-                  "not": false
-                }
-              ],
-              "alignment": "overlay",
-              "tracks": [
-                {
-                  "mark": "rect"
-                }
-              ],
-              "x": {
-                "field": "start",
-                "type": "genomic"
-              },
-              "xe": {
-                "field": "end",
-                "type": "genomic"
-              },
-              "color": {
-                "field": "peak",
-                "type": "quantitative"
+              {
+                "index": 2,
+                "name": "end"
               }
-            }
-          ]
-        },
-        {
-          "assembly": "hg38",
-          "xDomain": {
-            "chromosome": "2"
-          },
-          "tracks": [
-            {
-              "title": "BIGWIG1 - QUANT1",
-              "style": {
-                "outlineWidth": 1
+            ],
+            "valueFields": [
+              {
+                "index": 5,
+                "name": "strand",
+                "type": "nominal"
               },
-              "width": 333,
-              "height": 333,
-              "data": {
-                "url": "https://resgen.io/api/v1/tileset_info/?d=UvVPeLHuRDiYA3qwFlm7xQ",
-                "type": "multivec",
-                "row": "sample",
-                "column": "position",
-                "value": "peak",
-                "categories": [
-                  "0",
-                  "1",
-                  "2",
-                  "3",
-                  "4",
-                  "5",
-                  "6",
-                  "7",
-                  "8",
-                  "9"
-                ],
-                "binSize": 4
-              },
-              "dataTransform": [
-                {
-                  "type": "filter",
-                  "field": "sample",
-                  "oneOf": [
-                    "9"
-                  ],
-                  "not": false
-                }
-              ],
-              "alignment": "overlay",
-              "tracks": [
-                {
-                  "mark": "rect"
-                }
-              ],
-              "x": {
-                "field": "start",
-                "type": "genomic"
-              },
-              "xe": {
-                "field": "end",
-                "type": "genomic"
-              },
-              "color": {
-                "field": "peak",
-                "type": "quantitative"
+              {
+                "index": 3,
+                "name": "name",
+                "type": "nominal"
               }
-            }
-          ]
-        },
-        {
-          "assembly": "hg38",
-          "xDomain": {
-            "chromosome": "3"
-          },
-          "tracks": [
-            {
-              "title": "BIGWIG1 - QUANT1",
-              "style": {
-                "outlineWidth": 1
+            ],
+            "exonIntervalFields": [
+              {
+                "index": 12,
+                "name": "start"
               },
-              "width": 333,
-              "height": 333,
-              "data": {
-                "url": "https://resgen.io/api/v1/tileset_info/?d=UvVPeLHuRDiYA3qwFlm7xQ",
-                "type": "multivec",
-                "row": "sample",
-                "column": "position",
-                "value": "peak",
-                "categories": [
-                  "0",
-                  "1",
-                  "2",
-                  "3",
-                  "4",
-                  "5",
-                  "6",
-                  "7",
-                  "8",
-                  "9"
-                ],
-                "binSize": 4
-              },
-              "dataTransform": [
-                {
-                  "type": "filter",
-                  "field": "sample",
-                  "oneOf": [
-                    "9"
-                  ],
-                  "not": false
-                }
-              ],
-              "alignment": "overlay",
-              "tracks": [
-                {
-                  "mark": "rect"
-                }
-              ],
-              "x": {
-                "field": "start",
-                "type": "genomic"
-              },
-              "xe": {
-                "field": "end",
-                "type": "genomic"
-              },
-              "color": {
-                "field": "peak",
-                "type": "quantitative"
+              {
+                "index": 13,
+                "name": "end"
               }
-            }
-          ]
+            ]
+          },
+          "mark":  "rect",
+          "color": { "field": "name", "type":  "nominal", "legend": true},
+          "x": { "field": "start", "type":  "genomic"},
+          "xe": { "field": "end", "type":  "genomic"},
+          "stroke": { "field": "name", "type":  "nominal"},
+          "strokeWidth": { "value": 2 },
+          "width": 380,
+          "height": 80
         }
-      ]
-    },
-    {
-      "arrangement": "horizontal",
-      "views": [
-        {
-          "assembly": "hg38",
-          "xDomain": {
-            "chromosome": "4"
-          },
-          "tracks": [
-            {
-              "title": "BIGWIG1 - QUANT1",
-              "style": {
-                "outlineWidth": 1
-              },
-              "width": 333,
-              "height": 333,
-              "data": {
-                "url": "https://resgen.io/api/v1/tileset_info/?d=UvVPeLHuRDiYA3qwFlm7xQ",
-                "type": "multivec",
-                "row": "sample",
-                "column": "position",
-                "value": "peak",
-                "categories": [
-                  "0",
-                  "1",
-                  "2",
-                  "3",
-                  "4",
-                  "5",
-                  "6",
-                  "7",
-                  "8",
-                  "9"
-                ],
-                "binSize": 4
-              },
-              "dataTransform": [
-                {
-                  "type": "filter",
-                  "field": "sample",
-                  "oneOf": [
-                    "9"
-                  ],
-                  "not": false
-                }
-              ],
-              "alignment": "overlay",
-              "tracks": [
-                {
-                  "mark": "rect"
-                }
-              ],
-              "x": {
-                "field": "start",
-                "type": "genomic"
-              },
-              "xe": {
-                "field": "end",
-                "type": "genomic"
-              },
-              "color": {
-                "field": "peak",
-                "type": "quantitative"
-              }
-            }
-          ]
-        },
-        {
-          "assembly": "hg38",
-          "xDomain": {
-            "chromosome": "5"
-          },
-          "tracks": [
-            {
-              "title": "BIGWIG1 - QUANT1",
-              "style": {
-                "outlineWidth": 1
-              },
-              "width": 333,
-              "height": 333,
-              "data": {
-                "url": "https://resgen.io/api/v1/tileset_info/?d=UvVPeLHuRDiYA3qwFlm7xQ",
-                "type": "multivec",
-                "row": "sample",
-                "column": "position",
-                "value": "peak",
-                "categories": [
-                  "0",
-                  "1",
-                  "2",
-                  "3",
-                  "4",
-                  "5",
-                  "6",
-                  "7",
-                  "8",
-                  "9"
-                ],
-                "binSize": 4
-              },
-              "dataTransform": [
-                {
-                  "type": "filter",
-                  "field": "sample",
-                  "oneOf": [
-                    "9"
-                  ],
-                  "not": false
-                }
-              ],
-              "alignment": "overlay",
-              "tracks": [
-                {
-                  "mark": "rect"
-                }
-              ],
-              "x": {
-                "field": "start",
-                "type": "genomic"
-              },
-              "xe": {
-                "field": "end",
-                "type": "genomic"
-              },
-              "color": {
-                "field": "peak",
-                "type": "quantitative"
-              }
-            }
-          ]
-        }        
       ]
     }
   ]

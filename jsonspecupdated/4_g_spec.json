@@ -4,134 +4,61 @@
   },
   "assembly": "hg38",
   "arrangement": "vertical",
-  "centerRadius": 0.3,
-  "xDomain": {  "interval": [1, 1090000000]},
+  "centerRadius": 0.7,
   "views": [
     {
-      "layout": "linear",
       "assembly": "hg38",
       "tracks": [
         {
-          "title": "BIGWIG1 - QUANT1",
-          "style": {
-            "outlineWidth": 1
-          },
-          "width": 710,
-          "height": 100,
+          "title": "BED",
           "data": {
-            "url": "https://resgen.io/api/v1/tileset_info/?d=UvVPeLHuRDiYA3qwFlm7xQ",
-            "type": "multivec",
-            "row": "sample",
-            "column": "position",
-            "value": "peak",
-            "categories": [
-              "0",
-              "1",
-              "2",
-              "3",
-              "4",
-              "5",
-              "6",
-              "7",
-              "8",
-              "9",
-              "10",
-              "11",
-              "12",
-              "13",
-              "14",
-              "15",
-              "16",
-              "17",
-              "18",
-              "19",
-              "20",
-              "61",
-              "62",
-              "63",
-              "64",
-              "65",
-              "66",
-              "67",
-              "69",
-              "40",
-              "41",
-              "42",
-              "43",
-              "44",
-              "45",
-              "46",
-              "47",
-              "48",
-              "49",
-              "31",
-              "32",
-              "33",
-              "34",
-              "35",
-              "36",
-              "37",
-              "38",
-              "39",
-              "51",
-              "52",
-              "53",
-              "54",
-              "55",
-              "56",
-              "57",
-              "58",
-              "59"
+            "url": "https://server.gosling-lang.org/api/v1/tileset_info/?d=gene-annotation",
+            "type": "beddb",
+            "genomicFields": [
+              {
+                "index": 1,
+                "name": "start"
+              },
+              {
+                "index": 2,
+                "name": "end"
+              }
             ],
-            "binSize": 2,
-            "aggregation":  "mean"
+            "valueFields": [
+              {
+                "index": 5,
+                "name": "strand",
+                "type": "nominal"
+              },
+              {
+                "index": 3,
+                "name": "name",
+                "type": "nominal"
+              }
+            ],
+            "exonIntervalFields": [
+              {
+                "index": 12,
+                "name": "start"
+              },
+              {
+                "index": 13,
+                "name": "end"
+              }
+            ]
           },
           "dataTransform": [
-            {
-              "type": "filter",
-              "field": "sample",
-              "oneOf": [
-                "4"
-              ],
-              "not": false
-            }
+             { "type":  "filter", "field": "type", "oneOf": ["gene"]},
+             { "type":  "displace", "newField": "row",  "boundingBox": { "startField": "start", "endField": "end",  "isPaddingBP": false, "padding": 20}, "method":  "pile"}
           ],
-          "alignment": "overlay",
-          "tracks": [
-            {
-              "mark": "line"
-            },
-            {
-              "mark": "point",
-              "size": {
-                "value": 1.5
-              }
-            }
-          ],
-          "x": {
-            "field": "position",
-            "type": "genomic"
-          },
-          "row": {
-            "field": "sample",
-            "type": "nominal",
-            "legend": true
-          },
-          "y": {
-            "field": "peak",
-            "type": "quantitative",
-            "axis": "right",
-            "grid": true
-          },
-          "color": {
-            "value": "gray"
-          },
-          "size": {
-            "value": 1
-          },
-          "opacity": {
-            "value": 0.8
-          }
+          "mark":  "text",
+          "text": { "field": "name", "type":  "nominal"},
+          "x": { "field": "start", "type":  "genomic"},
+          "xe": { "field": "end", "type":  "genomic"},
+          "row": { "field": "row", "type":  "nominal"},
+          "color": { "value": "gray"},
+          "width": 785,
+          "height": 100
         }
       ]
     }

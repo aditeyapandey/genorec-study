@@ -1,18 +1,16 @@
 {
-  "style": {
-    "enableSmoothPath": true
-  },
   "assembly": "hg38",
-  "arrangement": "vertical",
   "centerRadius": 0.6,
   "views": [
     {
-      "spacing": 10,
-      "layout": "circular",
-      "assembly": "hg38",
       "tracks": [
-        {
+      {
           "title": "BED1 - CAT1",
+          "style": {
+            "outlineWidth": 1
+          },
+          "width": 710,
+          "height": 100,
           "data": {
             "url": "https://s3.amazonaws.com/gosling-lang.org/data/cancer/rearrangement.PD35930a.csv",
             "type": "csv",
@@ -27,54 +25,39 @@
               }
             ]
           },
+          "mark": "rect",
           "dataTransform": [
             { "type": "filter", "field": "svclass", "oneOf": ["translocation"], "not": true}
-          ],
-          "mark": "rect",
-          "x": {"field": "start1", "type": "genomic", "axis": "top"},
+          ], 
+          "x": {"field": "start1", "type": "genomic"},
           "xe": {"field": "end2", "type": "genomic"},
           "color": {
             "field": "svclass",
             "type": "nominal",
-            "legend": false,
-            "domain": [
-              "tandem-duplication",
-              "delection",
-              "inversion"
-            ],
-            "range": ["#569C4D", "#4C75A2", "#DA5456", "#EA8A2A"]
-          },
-          "row": {
-            "field": "svclass",
-            "type": "nominal",
-            "domain": [
-              "tandem-duplication",
-              "delection",
-              "inversion"
-            ]
+            "domain": ["tandem-duplication", "deletion", "inversion"],
+            "legend":true
           },
           "stroke": {
             "field": "svclass",
             "type": "nominal",
-            "domain": [
-              "tandem-duplication",
-              "delection",
-              "inversion"
-            ],
-            "range": ["#569C4D", "#4C75A2", "#DA5456", "#EA8A2A"]
+            "domain": ["tandem-duplication", "deletion", "inversion"],
+            "legend":true
+          },
+          "row": {
+            "field": "svclass",
+            "type": "nominal",
+            "domain": ["tandem-duplication", "deletion", "inversion"]
           },
           "strokeWidth": {"value": 1},
-          "opacity": {"value": 0.6},
-          "width": 200,
-          "height": 80
+          "opacity": {"value": 0.6}
         },
         {
-          "title": "BED2 - CAT1",
+          "title": "BED2 - QUANT1",
           "style": {
             "outlineWidth": 1
           },
-          "width": 380,
-          "height": 80,
+          "width": 500,
+          "height": 100,
           "data": {
             "url": "https://server.gosling-lang.org/api/v1/tileset_info/?d=gwas-beddb",
             "type": "beddb",
@@ -126,26 +109,83 @@
               }
             ]
           },
-          "mark": "rect",
+          "mark": "bar",
           "x": {
             "field": "start",
             "type": "genomic"
           },
+          "y": {
+            "field": "pvalue",
+            "type": "quantitative",
+            "axis": "right",
+            "grid": true
+          },
           "color": {
-            "field": "disease",
-            "type": "nominal",
-            "legend": false
-          },          
+            "value": "grey"
+          },
           "stroke": {
-            "field": "disease",
-            "type": "nominal"
+            "value": "grey"
           },
           "strokeWidth": {
             "value": 0.5
           },
           "opacity": {
             "value": 0.8
+          },
+          "size": {
+            "value": 3
           }
+        },
+        {
+          "title": "BED3 - TEXT1",
+          "data": {
+            "url": "https://server.gosling-lang.org/api/v1/tileset_info/?d=gene-annotation",
+            "type": "beddb",
+            "genomicFields": [
+              {
+                "index": 1,
+                "name": "start"
+              },
+              {
+                "index": 2,
+                "name": "end"
+              }
+            ],
+            "valueFields": [
+              {
+                "index": 5,
+                "name": "strand",
+                "type": "nominal"
+              },
+              {
+                "index": 3,
+                "name": "name",
+                "type": "nominal"
+              }
+            ],
+            "exonIntervalFields": [
+              {
+                "index": 12,
+                "name": "start"
+              },
+              {
+                "index": 13,
+                "name": "end"
+              }
+            ]
+          },
+          "dataTransform": [
+             { "type":  "filter", "field": "type", "oneOf": ["gene"]},
+             { "type":  "displace", "newField": "row",  "boundingBox": { "startField": "start", "endField": "end",  "isPaddingBP": false, "padding": 20}, "method":  "pile"}
+          ],
+          "mark":  "text",
+          "text": { "field": "name", "type":  "nominal"},
+          "x": { "field": "start", "type":  "genomic"},
+          "xe": { "field": "end", "type":  "genomic"},
+          "row": { "field": "row", "type":  "nominal"},
+          "color": { "value": "gray"},
+          "width": 785,
+          "height": 100
         }
       ]
     }

@@ -3,241 +3,1312 @@
     "enableSmoothPath": true
   },
   "assembly": "hg38",
-  "arrangement": "vertical",
-  "centerRadius": 0.3,
-  "layout": "circular",
+  "centerRadius": 0.6,
+  "arrangement": "horizontal",
   "views": [
     {
-      "tracks": [
+      "arrangement": "vertical",
+      "views": [
         {
-          "title": "GENES",
-          "template": "gene",
-          "data": {
-            "url": "https://server.gosling-lang.org/api/v1/tileset_info/?d=gene-annotation",
-            "type": "beddb",
-            "genomicFields": [
-              {
-                "index": 1,
-                "name": "start"
-              },
-              {
-                "index": 2,
-                "name": "end"
-              }
-            ],
-            "valueFields": [
-              {
-                "index": 5,
-                "name": "strand",
-                "type": "nominal"
-              },
-              {
-                "index": 3,
-                "name": "name",
-                "type": "nominal"
-              }
-            ],
-            "exonIntervalFields": [
-              {
-                "index": 12,
-                "name": "start"
-              },
-              {
-                "index": 13,
-                "name": "end"
-              }
-            ]
+          "xDomain": {
+            "chromosome": "1"
           },
-          "encoding": {
-            "startPosition": {
-              "field": "start"
-            },
-            "endPosition": {
-              "field": "end"
-            },
-            "strandColor": {
-              "field": "strand",
-              "range": [
-                "gray"
-              ]
-            },
-            "strandRow": {
-              "field": "strand"
-            },
-            "opacity": {
-              "value": 0.4
-            },
-            "geneHeight": {
-              "value": 10
-            },
-            "geneLabel": {
-              "field": "name"
-            },
-            "geneLabelFontSize": {
-              "value": 10
-            },
-            "geneLabelColor": {
-              "field": "strand",
-              "range": [
-                "gray"
-              ]
-            },
-            "geneLabelStroke": {
-              "value": "white"
-            },
-            "geneLabelStrokeThickness": {
-              "value": 4
-            },
-            "geneLabelOpacity": {
-              "value": 1
-            },
-            "type": {
-              "field": "type"
+          "spacing": 10,
+          "assembly": "hg38",
+          "tracks": [
+            {
+              "title": "BED1 - CAT1",
+              "data": {
+                "url": "https://s3.amazonaws.com/gosling-lang.org/data/cancer/rearrangement.PD35930a.csv",
+                "type": "csv",
+                "genomicFieldsToConvert": [
+                  {
+                    "chromosomeField": "chr1",
+                    "genomicFields": [
+                      "start1",
+                      "end1"
+                    ]
+                  },
+                  {
+                    "chromosomeField": "chr2",
+                    "genomicFields": [
+                      "start2",
+                      "end2"
+                    ]
+                  }
+                ]
+              },
+              "dataTransform": [
+                {
+                  "type": "filter",
+                  "field": "svclass",
+                  "oneOf": [
+                    "translocation"
+                  ],
+                  "not": true
+                }
+              ],
+              "mark": "rect",
+              "x": {
+                "field": "start1",
+                "type": "genomic",
+                "axis": "top"
+              },
+              "xe": {
+                "field": "end2",
+                "type": "genomic"
+              },
+              "color": {
+                "field": "svclass",
+                "type": "nominal",
+                "legend": false,
+                "domain": [
+                  "tandem-duplication",
+                  "delection",
+                  "inversion"
+                ],
+                "range": [
+                  "#569C4D",
+                  "#4C75A2",
+                  "#DA5456",
+                  "#EA8A2A"
+                ]
+              },
+              "row": {
+                "field": "svclass",
+                "type": "nominal",
+                "domain": [
+                  "tandem-duplication",
+                  "delection",
+                  "inversion"
+                ]
+              },
+              "stroke": {
+                "field": "svclass",
+                "type": "nominal",
+                "domain": [
+                  "tandem-duplication",
+                  "delection",
+                  "inversion"
+                ],
+                "range": [
+                  "#569C4D",
+                  "#4C75A2",
+                  "#DA5456",
+                  "#EA8A2A"
+                ]
+              },
+              "strokeWidth": {
+                "value": 1
+              },
+              "opacity": {
+                "value": 0.6
+              },
+              "width": 450,
+              "height": 50
             }
-          },
-          "width": 380,
-          "height": 80
+          ]
         },
         {
-          "title": "BIGWIG1 - QUANT1",
-          "style": {
-            "outlineWidth": 1
+          "xDomain": {
+            "chromosome": "2"
           },
-          "width": 380,
-          "height": 80,
-          "data": {
-            "url": "https://resgen.io/api/v1/tileset_info/?d=UvVPeLHuRDiYA3qwFlm7xQ",
-            "type": "multivec",
-            "row": "sample",
-            "column": "position",
-            "value": "peak",
-            "categories": [
-              "0",
-              "1",
-              "2",
-              "3",
-              "4",
-              "5",
-              "6",
-              "7",
-              "8",
-              "9",
-              "10",
-              "11",
-              "12",
-              "13",
-              "14",
-              "15",
-              "16",
-              "17",
-              "18",
-              "19",
-              "20",
-              "21",
-              "22",
-              "23",
-              "24",
-              "25",
-              "26",
-              "27",
-              "28",
-              "29",
-              "30",
-              "31",
-              "32",
-              "33",
-              "34",
-              "35",
-              "36",
-              "37",
-              "38",
-              "39",
-              "40",
-              "41",
-              "42",
-              "43",
-              "44",
-              "45",
-              "46",
-              "47",
-              "48",
-              "49",
-              "50",
-              "51",
-              "52",
-              "53",
-              "54",
-              "55",
-              "56",
-              "57",
-              "58",
-              "59",
-              "60",
-              "61",
-              "62",
-              "63",
-              "64",
-              "65",
-              "66",
-              "67",
-              "68",
-              "69",
-              "70",
-              "71",
-              "72",
-              "73",
-              "74",
-              "75",
-              "76",
-              "77",
-              "78",
-              "79",
-              "80",
-              "81",
-              "82",
-              "83"
-            ],
-            "binSize": 16
-          },
-          "dataTransform": [
-            {
-              "type": "filter",
-              "field": "sample",
-              "oneOf": [
-                "83"
-              ],
-              "not": false
-            }
-          ],
-          "alignment": "overlay",
+          "assembly": "hg38",
           "tracks": [
-            
             {
-              "mark": "bar"
+              "title": "BED1 - CAT1",
+              "data": {
+                "url": "https://s3.amazonaws.com/gosling-lang.org/data/cancer/rearrangement.PD35930a.csv",
+                "type": "csv",
+                "genomicFieldsToConvert": [
+                  {
+                    "chromosomeField": "chr1",
+                    "genomicFields": [
+                      "start1",
+                      "end1"
+                    ]
+                  },
+                  {
+                    "chromosomeField": "chr2",
+                    "genomicFields": [
+                      "start2",
+                      "end2"
+                    ]
+                  }
+                ]
+              },
+              "dataTransform": [
+                {
+                  "type": "filter",
+                  "field": "svclass",
+                  "oneOf": [
+                    "translocation"
+                  ],
+                  "not": true
+                }
+              ],
+              "mark": "rect",
+              "x": {
+                "field": "start1",
+                "type": "genomic",
+                "axis": "top"
+              },
+              "xe": {
+                "field": "end2",
+                "type": "genomic"
+              },
+              "color": {
+                "field": "svclass",
+                "type": "nominal",
+                "legend": false,
+                "domain": [
+                  "tandem-duplication",
+                  "delection",
+                  "inversion"
+                ],
+                "range": [
+                  "#569C4D",
+                  "#4C75A2",
+                  "#DA5456",
+                  "#EA8A2A"
+                ]
+              },
+              "row": {
+                "field": "svclass",
+                "type": "nominal",
+                "domain": [
+                  "tandem-duplication",
+                  "delection",
+                  "inversion"
+                ]
+              },
+              "stroke": {
+                "field": "svclass",
+                "type": "nominal",
+                "domain": [
+                  "tandem-duplication",
+                  "delection",
+                  "inversion"
+                ],
+                "range": [
+                  "#569C4D",
+                  "#4C75A2",
+                  "#DA5456",
+                  "#EA8A2A"
+                ]
+              },
+              "strokeWidth": {
+                "value": 1
+              },
+              "opacity": {
+                "value": 0.6
+              },
+              "width": 430,
+              "height": 50
             }
-          ],
-          "x": {
-            "field": "start",
-            "type": "genomic"
+          ]
+        },
+        {
+          "xDomain": {
+            "chromosome": "3"
           },
- "xe": {
-            "field": "end",
-            "type": "genomic"
+          "assembly": "hg38",
+          "tracks": [
+            {
+              "title": "BED1 - CAT1",
+              "data": {
+                "url": "https://s3.amazonaws.com/gosling-lang.org/data/cancer/rearrangement.PD35930a.csv",
+                "type": "csv",
+                "genomicFieldsToConvert": [
+                  {
+                    "chromosomeField": "chr1",
+                    "genomicFields": [
+                      "start1",
+                      "end1"
+                    ]
+                  },
+                  {
+                    "chromosomeField": "chr2",
+                    "genomicFields": [
+                      "start2",
+                      "end2"
+                    ]
+                  }
+                ]
+              },
+              "dataTransform": [
+                {
+                  "type": "filter",
+                  "field": "svclass",
+                  "oneOf": [
+                    "translocation"
+                  ],
+                  "not": true
+                }
+              ],
+              "mark": "rect",
+              "x": {
+                "field": "start1",
+                "type": "genomic",
+                "axis": "top"
+              },
+              "xe": {
+                "field": "end2",
+                "type": "genomic"
+              },
+              "color": {
+                "field": "svclass",
+                "type": "nominal",
+                "legend": false,
+                "domain": [
+                  "tandem-duplication",
+                  "delection",
+                  "inversion"
+                ],
+                "range": [
+                  "#569C4D",
+                  "#4C75A2",
+                  "#DA5456",
+                  "#EA8A2A"
+                ]
+              },
+              "row": {
+                "field": "svclass",
+                "type": "nominal",
+                "domain": [
+                  "tandem-duplication",
+                  "delection",
+                  "inversion"
+                ]
+              },
+              "stroke": {
+                "field": "svclass",
+                "type": "nominal",
+                "domain": [
+                  "tandem-duplication",
+                  "delection",
+                  "inversion"
+                ],
+                "range": [
+                  "#569C4D",
+                  "#4C75A2",
+                  "#DA5456",
+                  "#EA8A2A"
+                ]
+              },
+              "strokeWidth": {
+                "value": 1
+              },
+              "opacity": {
+                "value": 0.6
+              },
+              "width": 400,
+              "height": 50
+            }
+          ]
+        },
+        {
+          "xDomain": {
+            "chromosome": "4"
           },
-          "y": {
-            "field": "peak",
-            "type": "quantitative",
-            "axis": "right",
-            "grid": true
+          "assembly": "hg38",
+          "tracks": [
+            {
+              "title": "BED1 - CAT1",
+              "data": {
+                "url": "https://s3.amazonaws.com/gosling-lang.org/data/cancer/rearrangement.PD35930a.csv",
+                "type": "csv",
+                "genomicFieldsToConvert": [
+                  {
+                    "chromosomeField": "chr1",
+                    "genomicFields": [
+                      "start1",
+                      "end1"
+                    ]
+                  },
+                  {
+                    "chromosomeField": "chr2",
+                    "genomicFields": [
+                      "start2",
+                      "end2"
+                    ]
+                  }
+                ]
+              },
+              "dataTransform": [
+                {
+                  "type": "filter",
+                  "field": "svclass",
+                  "oneOf": [
+                    "translocation"
+                  ],
+                  "not": true
+                }
+              ],
+              "mark": "rect",
+              "x": {
+                "field": "start1",
+                "type": "genomic",
+                "axis": "top"
+              },
+              "xe": {
+                "field": "end2",
+                "type": "genomic"
+              },
+              "color": {
+                "field": "svclass",
+                "type": "nominal",
+                "legend": false,
+                "domain": [
+                  "tandem-duplication",
+                  "delection",
+                  "inversion"
+                ],
+                "range": [
+                  "#569C4D",
+                  "#4C75A2",
+                  "#DA5456",
+                  "#EA8A2A"
+                ]
+              },
+              "row": {
+                "field": "svclass",
+                "type": "nominal",
+                "domain": [
+                  "tandem-duplication",
+                  "delection",
+                  "inversion"
+                ]
+              },
+              "stroke": {
+                "field": "svclass",
+                "type": "nominal",
+                "domain": [
+                  "tandem-duplication",
+                  "delection",
+                  "inversion"
+                ],
+                "range": [
+                  "#569C4D",
+                  "#4C75A2",
+                  "#DA5456",
+                  "#EA8A2A"
+                ]
+              },
+              "strokeWidth": {
+                "value": 1
+              },
+              "opacity": {
+                "value": 0.6
+              },
+              "width": 350,
+              "height": 50
+            }
+          ]
+        },
+        {
+          "xDomain": {
+            "chromosome": "5"
           },
-          "color": {
-            "value": "gray"
+          "assembly": "hg38",
+          "tracks": [
+            {
+              "title": "BED1 - CAT1",
+              "data": {
+                "url": "https://s3.amazonaws.com/gosling-lang.org/data/cancer/rearrangement.PD35930a.csv",
+                "type": "csv",
+                "genomicFieldsToConvert": [
+                  {
+                    "chromosomeField": "chr1",
+                    "genomicFields": [
+                      "start1",
+                      "end1"
+                    ]
+                  },
+                  {
+                    "chromosomeField": "chr2",
+                    "genomicFields": [
+                      "start2",
+                      "end2"
+                    ]
+                  }
+                ]
+              },
+              "dataTransform": [
+                {
+                  "type": "filter",
+                  "field": "svclass",
+                  "oneOf": [
+                    "translocation"
+                  ],
+                  "not": true
+                }
+              ],
+              "mark": "rect",
+              "x": {
+                "field": "start1",
+                "type": "genomic",
+                "axis": "top"
+              },
+              "xe": {
+                "field": "end2",
+                "type": "genomic"
+              },
+              "color": {
+                "field": "svclass",
+                "type": "nominal",
+                "legend": false,
+                "domain": [
+                  "tandem-duplication",
+                  "delection",
+                  "inversion"
+                ],
+                "range": [
+                  "#569C4D",
+                  "#4C75A2",
+                  "#DA5456",
+                  "#EA8A2A"
+                ]
+              },
+              "row": {
+                "field": "svclass",
+                "type": "nominal",
+                "domain": [
+                  "tandem-duplication",
+                  "delection",
+                  "inversion"
+                ]
+              },
+              "stroke": {
+                "field": "svclass",
+                "type": "nominal",
+                "domain": [
+                  "tandem-duplication",
+                  "delection",
+                  "inversion"
+                ],
+                "range": [
+                  "#569C4D",
+                  "#4C75A2",
+                  "#DA5456",
+                  "#EA8A2A"
+                ]
+              },
+              "strokeWidth": {
+                "value": 1
+              },
+              "opacity": {
+                "value": 0.6
+              },
+              "width": 350,
+              "height": 50
+            }
+          ]
+        },
+        {
+          "xDomain": {
+            "chromosome": "6"
           },
-"stroke": { "value": "white" },
-"strokeWidth": { "value": 1 },
-          "opacity": {
-            "value": 0.8
-          }
+          "assembly": "hg38",
+          "tracks": [
+            {
+              "title": "BED1 - CAT1",
+              "data": {
+                "url": "https://s3.amazonaws.com/gosling-lang.org/data/cancer/rearrangement.PD35930a.csv",
+                "type": "csv",
+                "genomicFieldsToConvert": [
+                  {
+                    "chromosomeField": "chr1",
+                    "genomicFields": [
+                      "start1",
+                      "end1"
+                    ]
+                  },
+                  {
+                    "chromosomeField": "chr2",
+                    "genomicFields": [
+                      "start2",
+                      "end2"
+                    ]
+                  }
+                ]
+              },
+              "dataTransform": [
+                {
+                  "type": "filter",
+                  "field": "svclass",
+                  "oneOf": [
+                    "translocation"
+                  ],
+                  "not": true
+                }
+              ],
+              "mark": "rect",
+              "x": {
+                "field": "start1",
+                "type": "genomic",
+                "axis": "top"
+              },
+              "xe": {
+                "field": "end2",
+                "type": "genomic"
+              },
+              "color": {
+                "field": "svclass",
+                "type": "nominal",
+                "legend": false,
+                "domain": [
+                  "tandem-duplication",
+                  "delection",
+                  "inversion"
+                ],
+                "range": [
+                  "#569C4D",
+                  "#4C75A2",
+                  "#DA5456",
+                  "#EA8A2A"
+                ]
+              },
+              "row": {
+                "field": "svclass",
+                "type": "nominal",
+                "domain": [
+                  "tandem-duplication",
+                  "delection",
+                  "inversion"
+                ]
+              },
+              "stroke": {
+                "field": "svclass",
+                "type": "nominal",
+                "domain": [
+                  "tandem-duplication",
+                  "delection",
+                  "inversion"
+                ],
+                "range": [
+                  "#569C4D",
+                  "#4C75A2",
+                  "#DA5456",
+                  "#EA8A2A"
+                ]
+              },
+              "strokeWidth": {
+                "value": 1
+              },
+              "opacity": {
+                "value": 0.6
+              },
+              "width": 350,
+              "height": 50
+            }
+          ]
+        },
+        {
+          "xDomain": {
+            "chromosome": "7"
+          },
+          "assembly": "hg38",
+          "tracks": [
+            {
+              "title": "BED1 - CAT1",
+              "data": {
+                "url": "https://s3.amazonaws.com/gosling-lang.org/data/cancer/rearrangement.PD35930a.csv",
+                "type": "csv",
+                "genomicFieldsToConvert": [
+                  {
+                    "chromosomeField": "chr1",
+                    "genomicFields": [
+                      "start1",
+                      "end1"
+                    ]
+                  },
+                  {
+                    "chromosomeField": "chr2",
+                    "genomicFields": [
+                      "start2",
+                      "end2"
+                    ]
+                  }
+                ]
+              },
+              "dataTransform": [
+                {
+                  "type": "filter",
+                  "field": "svclass",
+                  "oneOf": [
+                    "translocation"
+                  ],
+                  "not": true
+                }
+              ],
+              "mark": "rect",
+              "x": {
+                "field": "start1",
+                "type": "genomic",
+                "axis": "top"
+              },
+              "xe": {
+                "field": "end2",
+                "type": "genomic"
+              },
+              "color": {
+                "field": "svclass",
+                "type": "nominal",
+                "legend": false,
+                "domain": [
+                  "tandem-duplication",
+                  "delection",
+                  "inversion"
+                ],
+                "range": [
+                  "#569C4D",
+                  "#4C75A2",
+                  "#DA5456",
+                  "#EA8A2A"
+                ]
+              },
+              "row": {
+                "field": "svclass",
+                "type": "nominal",
+                "domain": [
+                  "tandem-duplication",
+                  "delection",
+                  "inversion"
+                ]
+              },
+              "stroke": {
+                "field": "svclass",
+                "type": "nominal",
+                "domain": [
+                  "tandem-duplication",
+                  "delection",
+                  "inversion"
+                ],
+                "range": [
+                  "#569C4D",
+                  "#4C75A2",
+                  "#DA5456",
+                  "#EA8A2A"
+                ]
+              },
+              "strokeWidth": {
+                "value": 1
+              },
+              "opacity": {
+                "value": 0.6
+              },
+              "width": 350,
+              "height": 50
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "arrangement": "vertical",
+      "views": [
+        {
+          "xDomain": {
+            "chromosome": "1"
+          },
+          "tracks": [
+            {
+              "title": "BED2 - CAT1",
+              "style": {
+                "outlineWidth": 1
+              },
+              "width": 450,
+              "height": 50,
+              "data": {
+                "url": "https://server.gosling-lang.org/api/v1/tileset_info/?d=gwas-beddb",
+                "type": "beddb",
+                "genomicFields": [
+                  {
+                    "index": 1,
+                    "name": "start"
+                  },
+                  {
+                    "index": 2,
+                    "name": "end"
+                  }
+                ],
+                "valueFields": [
+                  {
+                    "index": 3,
+                    "name": "pubmedid",
+                    "type": "nominal"
+                  },
+                  {
+                    "index": 4,
+                    "name": "date",
+                    "type": "nominal"
+                  },
+                  {
+                    "index": 5,
+                    "name": "link",
+                    "type": "nominal"
+                  },
+                  {
+                    "index": 6,
+                    "name": "pvalue",
+                    "type": "quantitative"
+                  },
+                  {
+                    "index": 8,
+                    "name": "disease",
+                    "type": "nominal"
+                  },
+                  {
+                    "index": 9,
+                    "name": "pvalue_log",
+                    "type": "quantitative"
+                  },
+                  {
+                    "index": 10,
+                    "name": "pvalue_txt",
+                    "type": "nominal"
+                  }
+                ]
+              },
+              "mark": "rect",
+              "x": {
+                "field": "start",
+                "type": "genomic"
+              },
+              "color": {
+                "field": "disease",
+                "type": "nominal",
+                "legend": false
+              },
+              "stroke": {
+                "field": "disease",
+                "type": "nominal"
+              },
+              "strokeWidth": {
+                "value": 0.5
+              },
+              "opacity": {
+                "value": 0.8
+              }
+            }
+          ]
+        },
+        {
+          "xDomain": {
+            "chromosome": "2"
+          },
+          "tracks": [
+            {
+              "title": "BED2 - CAT1",
+              "style": {
+                "outlineWidth": 1
+              },
+              "width": 430,
+              "height": 50,
+              "data": {
+                "url": "https://server.gosling-lang.org/api/v1/tileset_info/?d=gwas-beddb",
+                "type": "beddb",
+                "genomicFields": [
+                  {
+                    "index": 1,
+                    "name": "start"
+                  },
+                  {
+                    "index": 2,
+                    "name": "end"
+                  }
+                ],
+                "valueFields": [
+                  {
+                    "index": 3,
+                    "name": "pubmedid",
+                    "type": "nominal"
+                  },
+                  {
+                    "index": 4,
+                    "name": "date",
+                    "type": "nominal"
+                  },
+                  {
+                    "index": 5,
+                    "name": "link",
+                    "type": "nominal"
+                  },
+                  {
+                    "index": 6,
+                    "name": "pvalue",
+                    "type": "quantitative"
+                  },
+                  {
+                    "index": 8,
+                    "name": "disease",
+                    "type": "nominal"
+                  },
+                  {
+                    "index": 9,
+                    "name": "pvalue_log",
+                    "type": "quantitative"
+                  },
+                  {
+                    "index": 10,
+                    "name": "pvalue_txt",
+                    "type": "nominal"
+                  }
+                ]
+              },
+              "mark": "rect",
+              "x": {
+                "field": "start",
+                "type": "genomic"
+              },
+              "color": {
+                "field": "disease",
+                "type": "nominal",
+                "legend": false
+              },
+              "stroke": {
+                "field": "disease",
+                "type": "nominal"
+              },
+              "strokeWidth": {
+                "value": 0.5
+              },
+              "opacity": {
+                "value": 0.8
+              }
+            }
+          ]
+        },
+        {
+          "xDomain": {
+            "chromosome": "3"
+          },
+          "tracks": [
+            {
+              "title": "BED2 - CAT1",
+              "style": {
+                "outlineWidth": 1
+              },
+              "width": 400,
+              "height": 50,
+              "data": {
+                "url": "https://server.gosling-lang.org/api/v1/tileset_info/?d=gwas-beddb",
+                "type": "beddb",
+                "genomicFields": [
+                  {
+                    "index": 1,
+                    "name": "start"
+                  },
+                  {
+                    "index": 2,
+                    "name": "end"
+                  }
+                ],
+                "valueFields": [
+                  {
+                    "index": 3,
+                    "name": "pubmedid",
+                    "type": "nominal"
+                  },
+                  {
+                    "index": 4,
+                    "name": "date",
+                    "type": "nominal"
+                  },
+                  {
+                    "index": 5,
+                    "name": "link",
+                    "type": "nominal"
+                  },
+                  {
+                    "index": 6,
+                    "name": "pvalue",
+                    "type": "quantitative"
+                  },
+                  {
+                    "index": 8,
+                    "name": "disease",
+                    "type": "nominal"
+                  },
+                  {
+                    "index": 9,
+                    "name": "pvalue_log",
+                    "type": "quantitative"
+                  },
+                  {
+                    "index": 10,
+                    "name": "pvalue_txt",
+                    "type": "nominal"
+                  }
+                ]
+              },
+              "mark": "rect",
+              "x": {
+                "field": "start",
+                "type": "genomic"
+              },
+              "color": {
+                "field": "disease",
+                "type": "nominal",
+                "legend": false
+              },
+              "stroke": {
+                "field": "disease",
+                "type": "nominal"
+              },
+              "strokeWidth": {
+                "value": 0.5
+              },
+              "opacity": {
+                "value": 0.8
+              }
+            }
+          ]
+        },
+        {
+          "xDomain": {
+            "chromosome": "4"
+          },
+          "tracks": [
+            {
+              "title": "BED2 - CAT1",
+              "style": {
+                "outlineWidth": 1
+              },
+              "width": 350,
+              "height": 50,
+              "data": {
+                "url": "https://server.gosling-lang.org/api/v1/tileset_info/?d=gwas-beddb",
+                "type": "beddb",
+                "genomicFields": [
+                  {
+                    "index": 1,
+                    "name": "start"
+                  },
+                  {
+                    "index": 2,
+                    "name": "end"
+                  }
+                ],
+                "valueFields": [
+                  {
+                    "index": 3,
+                    "name": "pubmedid",
+                    "type": "nominal"
+                  },
+                  {
+                    "index": 4,
+                    "name": "date",
+                    "type": "nominal"
+                  },
+                  {
+                    "index": 5,
+                    "name": "link",
+                    "type": "nominal"
+                  },
+                  {
+                    "index": 6,
+                    "name": "pvalue",
+                    "type": "quantitative"
+                  },
+                  {
+                    "index": 8,
+                    "name": "disease",
+                    "type": "nominal"
+                  },
+                  {
+                    "index": 9,
+                    "name": "pvalue_log",
+                    "type": "quantitative"
+                  },
+                  {
+                    "index": 10,
+                    "name": "pvalue_txt",
+                    "type": "nominal"
+                  }
+                ]
+              },
+              "mark": "rect",
+              "x": {
+                "field": "start",
+                "type": "genomic"
+              },
+              "color": {
+                "field": "disease",
+                "type": "nominal",
+                "legend": false
+              },
+              "stroke": {
+                "field": "disease",
+                "type": "nominal"
+              },
+              "strokeWidth": {
+                "value": 0.5
+              },
+              "opacity": {
+                "value": 0.8
+              }
+            }
+          ]
+        },
+        {
+          "xDomain": {
+            "chromosome": "5"
+          },
+          "tracks": [
+            {
+              "title": "BED2 - CAT1",
+              "style": {
+                "outlineWidth": 1
+              },
+              "width": 350,
+              "height": 50,
+              "data": {
+                "url": "https://server.gosling-lang.org/api/v1/tileset_info/?d=gwas-beddb",
+                "type": "beddb",
+                "genomicFields": [
+                  {
+                    "index": 1,
+                    "name": "start"
+                  },
+                  {
+                    "index": 2,
+                    "name": "end"
+                  }
+                ],
+                "valueFields": [
+                  {
+                    "index": 3,
+                    "name": "pubmedid",
+                    "type": "nominal"
+                  },
+                  {
+                    "index": 4,
+                    "name": "date",
+                    "type": "nominal"
+                  },
+                  {
+                    "index": 5,
+                    "name": "link",
+                    "type": "nominal"
+                  },
+                  {
+                    "index": 6,
+                    "name": "pvalue",
+                    "type": "quantitative"
+                  },
+                  {
+                    "index": 8,
+                    "name": "disease",
+                    "type": "nominal"
+                  },
+                  {
+                    "index": 9,
+                    "name": "pvalue_log",
+                    "type": "quantitative"
+                  },
+                  {
+                    "index": 10,
+                    "name": "pvalue_txt",
+                    "type": "nominal"
+                  }
+                ]
+              },
+              "mark": "rect",
+              "x": {
+                "field": "start",
+                "type": "genomic"
+              },
+              "color": {
+                "field": "disease",
+                "type": "nominal",
+                "legend": false
+              },
+              "stroke": {
+                "field": "disease",
+                "type": "nominal"
+              },
+              "strokeWidth": {
+                "value": 0.5
+              },
+              "opacity": {
+                "value": 0.8
+              }
+            }
+          ]
+        },
+        {
+          "xDomain": {
+            "chromosome": "6"
+          },
+          "tracks": [
+            {
+              "title": "BED2 - CAT1",
+              "style": {
+                "outlineWidth": 1
+              },
+              "width": 350,
+              "height": 50,
+              "data": {
+                "url": "https://server.gosling-lang.org/api/v1/tileset_info/?d=gwas-beddb",
+                "type": "beddb",
+                "genomicFields": [
+                  {
+                    "index": 1,
+                    "name": "start"
+                  },
+                  {
+                    "index": 2,
+                    "name": "end"
+                  }
+                ],
+                "valueFields": [
+                  {
+                    "index": 3,
+                    "name": "pubmedid",
+                    "type": "nominal"
+                  },
+                  {
+                    "index": 4,
+                    "name": "date",
+                    "type": "nominal"
+                  },
+                  {
+                    "index": 5,
+                    "name": "link",
+                    "type": "nominal"
+                  },
+                  {
+                    "index": 6,
+                    "name": "pvalue",
+                    "type": "quantitative"
+                  },
+                  {
+                    "index": 8,
+                    "name": "disease",
+                    "type": "nominal"
+                  },
+                  {
+                    "index": 9,
+                    "name": "pvalue_log",
+                    "type": "quantitative"
+                  },
+                  {
+                    "index": 10,
+                    "name": "pvalue_txt",
+                    "type": "nominal"
+                  }
+                ]
+              },
+              "mark": "rect",
+              "x": {
+                "field": "start",
+                "type": "genomic"
+              },
+              "color": {
+                "field": "disease",
+                "type": "nominal",
+                "legend": false
+              },
+              "stroke": {
+                "field": "disease",
+                "type": "nominal"
+              },
+              "strokeWidth": {
+                "value": 0.5
+              },
+              "opacity": {
+                "value": 0.8
+              }
+            }
+          ]
+        },
+        {
+          "xDomain": {
+            "chromosome": "7"
+          },
+          "tracks": [
+            {
+              "title": "BED2 - CAT1",
+              "style": {
+                "outlineWidth": 1
+              },
+              "width": 350,
+              "height": 50,
+              "data": {
+                "url": "https://server.gosling-lang.org/api/v1/tileset_info/?d=gwas-beddb",
+                "type": "beddb",
+                "genomicFields": [
+                  {
+                    "index": 1,
+                    "name": "start"
+                  },
+                  {
+                    "index": 2,
+                    "name": "end"
+                  }
+                ],
+                "valueFields": [
+                  {
+                    "index": 3,
+                    "name": "pubmedid",
+                    "type": "nominal"
+                  },
+                  {
+                    "index": 4,
+                    "name": "date",
+                    "type": "nominal"
+                  },
+                  {
+                    "index": 5,
+                    "name": "link",
+                    "type": "nominal"
+                  },
+                  {
+                    "index": 6,
+                    "name": "pvalue",
+                    "type": "quantitative"
+                  },
+                  {
+                    "index": 8,
+                    "name": "disease",
+                    "type": "nominal"
+                  },
+                  {
+                    "index": 9,
+                    "name": "pvalue_log",
+                    "type": "quantitative"
+                  },
+                  {
+                    "index": 10,
+                    "name": "pvalue_txt",
+                    "type": "nominal"
+                  }
+                ]
+              },
+              "mark": "rect",
+              "x": {
+                "field": "start",
+                "type": "genomic"
+              },
+              "color": {
+                "field": "disease",
+                "type": "nominal",
+                "legend": false
+              },
+              "stroke": {
+                "field": "disease",
+                "type": "nominal"
+              },
+              "strokeWidth": {
+                "value": 0.5
+              },
+              "opacity": {
+                "value": 0.8
+              }
+            }
+          ]
         }
       ]
     }

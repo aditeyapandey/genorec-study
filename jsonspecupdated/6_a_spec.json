@@ -7,168 +7,212 @@
   "centerRadius": 0.3,
   "views": [
     {
-      "layout": "linear",
-      "assembly": "hg38",
-      "tracks": [
+
+      "views": [
         {
-          "title": "BIGWIG1 - QUANT1",
-          "style": {
-            "outlineWidth": 1
-          },
-          "width": 710,
-          "height": 110,
-          "data": {
-            "url": "https://resgen.io/api/v1/tileset_info/?d=UvVPeLHuRDiYA3qwFlm7xQ",
-            "type": "multivec",
-            "row": "sample",
-            "column": "position",
-            "value": "peak",
-            "categories": [
-              "0",
-              "1",
-              "2",
-              "3",
-              "4",
-              "5",
-              "6",
-              "7",
-              "8",
-              "9"
-            ],
-            "binSize": 4
-          },
-          "dataTransform": [
-            {
-              "type": "filter",
-              "field": "sample",
-              "oneOf": [
-                "9"
-              ],
-              "not": false
-            }
-          ],
-          "alignment": "overlay",
+          "layout": "linear",
+          "assembly": "hg38",
+
+          "linkingId": "A",
           "tracks": [
             {
-              "mark": "line"
+              "title": "BIGWIG1 - QUANT1",
+              "style": {
+                "outlineWidth": 1
+              },
+              "width": 713,
+              "height": 100,
+              "data": {
+                "url": "https://resgen.io/api/v1/tileset_info/?d=UvVPeLHuRDiYA3qwFlm7xQ",
+                "type": "multivec",
+                "row": "sample",
+                "column": "position",
+                "value": "peak",
+                "categories": [
+                  "0",
+                  "1",
+                  "2",
+                  "3",
+                  "4",
+                  "5",
+                  "6",
+                  "7",
+                  "8",
+                  "9",
+                  "10",
+                  "11",
+                  "12",
+                  "13",
+                  "14",
+                  "15",
+                  "16",
+                  "17",
+                  "18",
+                  "19",
+                  "20",
+                  "21",
+                  "22",
+                  "23",
+                  "24",
+                  "25",
+                  "26",
+                  "27",
+                  "28",
+                  "29",
+                  "30",
+                  "31",
+                  "32",
+                  "33",
+                  "34",
+                  "35",
+                  "36",
+                  "37",
+                  "38",
+                  "39",
+                  "40",
+                  "41",
+                  "42",
+                  "43",
+                  "44",
+                  "45",
+                  "46",
+                  "47",
+                  "48",
+                  "49",
+                  "50",
+                  "51",
+                  "52",
+                  "53",
+                  "54",
+                  "55",
+                  "56",
+                  "57",
+                  "58",
+                  "59",
+                  "60",
+                  "61",
+                  "62",
+                  "63",
+                  "64",
+                  "65",
+                  "66",
+                  "67",
+                  "68",
+                  "69",
+                  "70",
+                  "71",
+                  "72",
+                  "73",
+                  "74",
+                  "75",
+                  "76",
+                  "77",
+                  "78",
+                  "79",
+                  "80",
+                  "81",
+                  "82",
+                  "83",
+                  "84",
+                  "85",
+                  "86",
+                  "87",
+                  "88",
+                  "89",
+                  "90",
+                  "91",
+                  "92",
+                  "93",
+                  "94",
+                  "95",
+                  "96",
+                  "97",
+                  "98",
+                  "99"
+                ],
+                "binSize": 4
+              },
+              "dataTransform": [
+                {
+                  "type": "filter",
+                  "field": "sample",
+                  "oneOf": [
+                    "99"
+                  ],
+                  "not": false
+                }
+              ],
+              "alignment": "overlay",
+              "tracks": [
+                {
+                  "mark": "rect"
+                }
+              ],
+              "x": {
+                "field": "start",
+                "type": "genomic"
+              },
+              "xe": {
+                "field": "end",
+                "type": "genomic"
+              },
+              "color": {
+                "field": "peak",
+                "type": "quantitative",
+                "legend": true
+              }
             },
             {
-              "mark": "point",
-              "size": {
-                "value": 2
+              "title": "BIGWIG2 - QUANT1",
+              "style": {
+                "outlineWidth": 1
+              },
+              "width": 713,
+              "height": 100,
+              "data": {
+                "url": "https://resgen.io/api/v1/tileset_info/?d=UvVPeLHuRDiYA3qwFlm7xQ",
+                "type": "multivec",
+                "row": "sample",
+                "column": "position",
+                "value": "peak",
+                "categories": [
+                  "0",
+                  "1",
+                  "2"
+                ],
+                "binSize": 4
+              },
+              "dataTransform": [
+                {
+                  "type": "filter",
+                  "field": "sample",
+                  "oneOf": [
+                    "2"
+                  ],
+                  "not": false
+                }
+              ],
+             "alignment": "overlay",
+              "tracks": [
+                {
+                  "mark": "rect"
+                }
+              ],
+              "x": {
+                "field": "start",
+                "type": "genomic"
+              },
+              "xe": {
+                "field": "end",
+                "type": "genomic"
+              },
+              "color": {
+                "field": "peak",
+                "type": "quantitative",
+                "legend": true
               }
             }
-          ],
-          "x": {
-            "field": "position",
-            "type": "genomic"
-          },
-          "y": {
-            "field": "peak",
-            "type": "quantitative",
-            "axis": "right",
-            "grid": true
-          },
-          "color": {
-            "value": "gray"
-          },
-          "size": {
-            "value": 1
-          },
-          "opacity": {
-            "value": 0.8
-          }
-        }
-      ]
-    },
-    {
-      "tracks": [
-        {
-          "title": "BED1 - CAT1",
-          "style": {
-            "outlineWidth": 1
-          },
-          "width": 710,
-          "height": 110,
-          "data": {
-            "url": "https://server.gosling-lang.org/api/v1/tileset_info/?d=gwas-beddb",
-            "type": "beddb",
-            "genomicFields": [
-              {
-                "index": 1,
-                "name": "start"
-              },
-              {
-                "index": 2,
-                "name": "end"
-              }
-            ],
-            "valueFields": [
-              {
-                "index": 3,
-                "name": "pubmedid",
-                "type": "nominal"
-              },
-              {
-                "index": 4,
-                "name": "date",
-                "type": "nominal"
-              },
-              {
-                "index": 5,
-                "name": "link",
-                "type": "nominal"
-              },
-              {
-                "index": 6,
-                "name": "pvalue",
-                "type": "quantitative"
-              },
-              {
-                "index": 8,
-                "name": "disease",
-                "type": "nominal"
-              },
-              {
-                "index": 9,
-                "name": "pvalue_log",
-                "type": "quantitative"
-              },
-              {
-                "index": 10,
-                "name": "pvalue_txt",
-                "type": "nominal"
-              }
-            ]
-          },
-          "dataTransform": [
-            {
-              "field": "disease", "oneOf": ["Asthma", "Blood protein levels", "White blood cell count", "Neutrophil count", "Body mass index"], "type": "filter"
-            }
-          ],
-          "mark": "rect",
-          "x": {
-            "field": "start",
-            "type": "genomic",
-            "axis": "top"
-          },
-          "color": {
-            "field": "disease",
-            "type": "nominal",
-            "domain": ["Asthma", "Blood protein levels", "White blood cell count", "Neutrophil count", "Body mass index"],
-            "legend": true
-          },          
-          "stroke": {
-            "field": "disease",
-            "domain": ["Asthma", "Blood protein levels", "White blood cell count", "Neutrophil count", "Body mass index"],
-            "type": "nominal"
-          },
-          "strokeWidth": {
-            "value": 0.5
-          },
-          "opacity": {
-            "value": 0.8
-          }
+          ]
         }
       ]
     }

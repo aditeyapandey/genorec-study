@@ -1,18 +1,201 @@
 {
   "style": {
-    "enableSmoothPath": true
+    "enableSmoothPath": true,
+    "inlineLegend":true
   },
   "assembly": "hg38",
   "arrangement": "vertical",
-  "centerRadius": 0.7,
+  "centerRadius": 0.3,
   "views": [
     {
+      "layout": "linear",
       "assembly": "hg38",
       "tracks": [
         {
-          "title": "BED",
+          "static": true,
+          "alignment": "overlay",
+          "title": "Whole Genome",
           "data": {
-            "url": "https://server.gosling-lang.org/api/v1/tileset_info/?d=gene-annotation",
+            "url": "https://raw.githubusercontent.com/sehilyi/gemini-datasets/master/data/UCSC.HG38.Human.CytoBandIdeogram.csv",
+            "type": "csv",
+            "chromosomeField": "Chromosome",
+            "genomicFields": [
+              "chromStart",
+              "chromEnd"
+            ]
+          },
+          "tracks": [
+            {
+              "mark": "rect",
+              "color": {
+                "field": "Chromosome",
+                "type": "nominal",
+                "domain": [
+                  "chr1",
+                  "chr2",
+                  "chr3",
+                  "chr4",
+                  "chr5",
+                  "chr6",
+                  "chr7",
+                  "chr8",
+                  "chr9",
+                  "chr10",
+                  "chr11",
+                  "chr12",
+                  "chr13",
+                  "chr14",
+                  "chr15",
+                  "chr16",
+                  "chr17",
+                  "chr18",
+                  "chr19",
+                  "chr20",
+                  "chr21",
+                  "chr22",
+                  "chrX",
+                  "chrY"
+                ],
+                "range": [
+                  "#F6F6F6",
+                  "black"
+                ]
+              },
+              "x": {
+                "field": "chromStart",
+                "type": "genomic",
+                "aggregate": "min"
+              },
+              "xe": {
+                "field": "chromEnd",
+                "aggregate": "max",
+                "type": "genomic"
+              }
+            },
+            {
+              "mark": "brush",
+              "x": {
+                "linkingId": "A"
+              },
+              "stroke": {
+                "value": "black"
+              },
+              "strokeWidth": {
+                "value": 2
+              }
+            },
+            {
+              "mark": "brush",
+              "x": {
+                "linkingId": "B"
+              },
+              "stroke": {
+                "value": "black"
+              },
+              "strokeWidth": {
+                "value": 2
+              }
+            }
+          ],
+          "stroke": {
+            "value": "gray"
+          },
+          "strokeWidth": {
+            "value": 0.5
+          },
+          "style": {
+            "outline": "black"
+          },
+          "width": 710,
+          "height": 20
+        }
+      ]
+    },
+    {
+      "xDomain": { "chromosome": "7"},
+      "linkingId": "A",
+      "layout": "linear",
+      "assembly": "hg38",
+      "tracks": [
+        {
+          "title": "BIGWIG1 - QUANT1",
+          "style": {
+            "outlineWidth": 1
+          },
+          "width": 710,
+          "height": 110,
+          "data": {
+            "url": "https://resgen.io/api/v1/tileset_info/?d=UvVPeLHuRDiYA3qwFlm7xQ",
+            "type": "multivec",
+            "row": "sample",
+            "column": "position",
+            "value": "peak",
+            "categories": [
+              "0",
+              "1",
+              "2",
+              "3",
+              "4",
+              "5",
+              "6",
+              "7",
+              "8",
+              "9"
+            ],
+            "binSize": 4
+          },
+          "dataTransform": [
+            {
+              "type": "filter",
+              "field": "sample",
+              "oneOf": [
+                "9"
+              ],
+              "not": false
+            }
+          ],
+          "alignment": "overlay",
+          "tracks": [
+            {
+              "mark": "line"
+            },
+            {
+              "mark": "point",
+              "size": {
+                "value": 2
+              }
+            }
+          ],
+          "x": {
+            "field": "position",
+            "type": "genomic",
+            "linkingId": "A"
+          },
+          "y": {
+            "field": "peak",
+            "type": "quantitative",
+            "axis": "right",
+            "grid": true
+          },
+          "color": {
+            "value": "gray"
+          },
+          "size": {
+            "value": 1
+          },
+          "opacity": {
+            "value": 0.8
+          }
+        },
+        {
+          "title": "BED1 - CAT1",
+          "style": {
+            "outlineWidth": 1
+          },
+          "width": 710,
+          "height": 110,
+          "data": {
+            "url": "https://server.gosling-lang.org/api/v1/tileset_info/?d=gwas-beddb",
             "type": "beddb",
             "genomicFields": [
               {
@@ -26,39 +209,70 @@
             ],
             "valueFields": [
               {
-                "index": 5,
-                "name": "strand",
-                "type": "nominal"
-              },
-              {
                 "index": 3,
-                "name": "name",
+                "name": "pubmedid",
                 "type": "nominal"
-              }
-            ],
-            "exonIntervalFields": [
-              {
-                "index": 12,
-                "name": "start"
               },
               {
-                "index": 13,
-                "name": "end"
+                "index": 4,
+                "name": "date",
+                "type": "nominal"
+              },
+              {
+                "index": 5,
+                "name": "link",
+                "type": "nominal"
+              },
+              {
+                "index": 6,
+                "name": "pvalue",
+                "type": "quantitative"
+              },
+              {
+                "index": 8,
+                "name": "disease",
+                "type": "nominal"
+              },
+              {
+                "index": 9,
+                "name": "pvalue_log",
+                "type": "quantitative"
+              },
+              {
+                "index": 10,
+                "name": "pvalue_txt",
+                "type": "nominal"
               }
             ]
           },
           "dataTransform": [
-             { "type":  "filter", "field": "type", "oneOf": ["gene"]},
-             { "type":  "displace", "newField": "row",  "boundingBox": { "startField": "start", "endField": "end",  "isPaddingBP": false, "padding": 20}, "method":  "pile"}
+            {
+              "field": "disease", "oneOf": ["Asthma", "Blood protein levels", "White blood cell count", "Neutrophil count", "Body mass index"], "type": "filter"
+            }
           ],
-          "mark":  "text",
-          "text": { "field": "name", "type":  "nominal"},
-          "x": { "field": "start", "type":  "genomic"},
-          "xe": { "field": "end", "type":  "genomic"},
-          "row": { "field": "row", "type":  "nominal"},
-          "color": { "value": "gray"},
-          "width": 785,
-          "height": 100
+          "mark": "rect",
+          "x": {
+            "field": "start",
+            "type": "genomic",
+            "axis": "top"
+          },
+          "color": {
+            "field": "disease",
+            "type": "nominal",
+            "domain": ["Asthma", "Blood protein levels", "White blood cell count", "Neutrophil count", "Body mass index"],
+            "legend": true
+          },          
+          "stroke": {
+            "field": "disease",
+            "domain": ["Asthma", "Blood protein levels", "White blood cell count", "Neutrophil count", "Body mass index"],
+            "type": "nominal"
+          },
+          "strokeWidth": {
+            "value": 0.5
+          },
+          "opacity": {
+            "value": 0.8
+          }
         }
       ]
     }

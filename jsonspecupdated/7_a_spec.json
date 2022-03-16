@@ -5,214 +5,239 @@
   "assembly": "hg38",
   "arrangement": "vertical",
   "centerRadius": 0.3,
+  "layout": "circular",
   "views": [
     {
-
-      "views": [
+      "tracks": [
         {
-          "layout": "linear",
-          "assembly": "hg38",
-
-          "linkingId": "A",
-          "tracks": [
-            {
-              "title": "BIGWIG1 - QUANT1",
-              "style": {
-                "outlineWidth": 1
+          "title": "GENES",
+          "template": "gene",
+          "data": {
+            "url": "https://server.gosling-lang.org/api/v1/tileset_info/?d=gene-annotation",
+            "type": "beddb",
+            "genomicFields": [
+              {
+                "index": 1,
+                "name": "start"
               },
-              "width": 713,
-              "height": 100,
-              "data": {
-                "url": "https://resgen.io/api/v1/tileset_info/?d=UvVPeLHuRDiYA3qwFlm7xQ",
-                "type": "multivec",
-                "row": "sample",
-                "column": "position",
-                "value": "peak",
-                "categories": [
-                  "0",
-                  "1",
-                  "2",
-                  "3",
-                  "4",
-                  "5",
-                  "6",
-                  "7",
-                  "8",
-                  "9",
-                  "10",
-                  "11",
-                  "12",
-                  "13",
-                  "14",
-                  "15",
-                  "16",
-                  "17",
-                  "18",
-                  "19",
-                  "20",
-                  "21",
-                  "22",
-                  "23",
-                  "24",
-                  "25",
-                  "26",
-                  "27",
-                  "28",
-                  "29",
-                  "30",
-                  "31",
-                  "32",
-                  "33",
-                  "34",
-                  "35",
-                  "36",
-                  "37",
-                  "38",
-                  "39",
-                  "40",
-                  "41",
-                  "42",
-                  "43",
-                  "44",
-                  "45",
-                  "46",
-                  "47",
-                  "48",
-                  "49",
-                  "50",
-                  "51",
-                  "52",
-                  "53",
-                  "54",
-                  "55",
-                  "56",
-                  "57",
-                  "58",
-                  "59",
-                  "60",
-                  "61",
-                  "62",
-                  "63",
-                  "64",
-                  "65",
-                  "66",
-                  "67",
-                  "68",
-                  "69",
-                  "70",
-                  "71",
-                  "72",
-                  "73",
-                  "74",
-                  "75",
-                  "76",
-                  "77",
-                  "78",
-                  "79",
-                  "80",
-                  "81",
-                  "82",
-                  "83",
-                  "84",
-                  "85",
-                  "86",
-                  "87",
-                  "88",
-                  "89",
-                  "90",
-                  "91",
-                  "92",
-                  "93",
-                  "94",
-                  "95",
-                  "96",
-                  "97",
-                  "98",
-                  "99"
-                ],
-                "binSize": 4
-              },
-              "dataTransform": [
-                {
-                  "type": "filter",
-                  "field": "sample",
-                  "oneOf": [
-                    "99"
-                  ],
-                  "not": false
-                }
-              ],
-              "alignment": "overlay",
-              "tracks": [
-                {
-                  "mark": "rect"
-                }
-              ],
-              "x": {
-                "field": "start",
-                "type": "genomic"
-              },
-              "xe": {
-                "field": "end",
-                "type": "genomic"
-              },
-              "color": {
-                "field": "peak",
-                "type": "quantitative",
-                "legend": true
+              {
+                "index": 2,
+                "name": "end"
               }
+            ],
+            "valueFields": [
+              {
+                "index": 5,
+                "name": "strand",
+                "type": "nominal"
+              },
+              {
+                "index": 3,
+                "name": "name",
+                "type": "nominal"
+              }
+            ],
+            "exonIntervalFields": [
+              {
+                "index": 12,
+                "name": "start"
+              },
+              {
+                "index": 13,
+                "name": "end"
+              }
+            ]
+          },
+          "encoding": {
+            "startPosition": {
+              "field": "start"
             },
-            {
-              "title": "BIGWIG2 - QUANT1",
-              "style": {
-                "outlineWidth": 1
-              },
-              "width": 713,
-              "height": 100,
-              "data": {
-                "url": "https://resgen.io/api/v1/tileset_info/?d=UvVPeLHuRDiYA3qwFlm7xQ",
-                "type": "multivec",
-                "row": "sample",
-                "column": "position",
-                "value": "peak",
-                "categories": [
-                  "0",
-                  "1",
-                  "2"
-                ],
-                "binSize": 4
-              },
-              "dataTransform": [
-                {
-                  "type": "filter",
-                  "field": "sample",
-                  "oneOf": [
-                    "2"
-                  ],
-                  "not": false
-                }
-              ],
-             "alignment": "overlay",
-              "tracks": [
-                {
-                  "mark": "rect"
-                }
-              ],
-              "x": {
-                "field": "start",
-                "type": "genomic"
-              },
-              "xe": {
-                "field": "end",
-                "type": "genomic"
-              },
-              "color": {
-                "field": "peak",
-                "type": "quantitative",
-                "legend": true
-              }
+            "endPosition": {
+              "field": "end"
+            },
+            "strandColor": {
+              "field": "strand",
+              "range": [
+                "gray"
+              ]
+            },
+            "strandRow": {
+              "field": "strand"
+            },
+            "opacity": {
+              "value": 0.4
+            },
+            "geneHeight": {
+              "value": 10
+            },
+            "geneLabel": {
+              "field": "name"
+            },
+            "geneLabelFontSize": {
+              "value": 10
+            },
+            "geneLabelColor": {
+              "field": "strand",
+              "range": [
+                "gray"
+              ]
+            },
+            "geneLabelStroke": {
+              "value": "white"
+            },
+            "geneLabelStrokeThickness": {
+              "value": 4
+            },
+            "geneLabelOpacity": {
+              "value": 1
+            },
+            "type": {
+              "field": "type"
             }
-          ]
+          },
+          "width": 380,
+          "height": 80
+        },
+        {
+          "title": "BIGWIG1 - QUANT1",
+          "style": {
+            "outlineWidth": 1
+          },
+          "width": 380,
+          "height": 80,
+          "data": {
+            "url": "https://resgen.io/api/v1/tileset_info/?d=UvVPeLHuRDiYA3qwFlm7xQ",
+            "type": "multivec",
+            "row": "sample",
+            "column": "position",
+            "value": "peak",
+            "categories": [
+              "0",
+              "1",
+              "2",
+              "3",
+              "4",
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10",
+              "11",
+              "12",
+              "13",
+              "14",
+              "15",
+              "16",
+              "17",
+              "18",
+              "19",
+              "20",
+              "21",
+              "22",
+              "23",
+              "24",
+              "25",
+              "26",
+              "27",
+              "28",
+              "29",
+              "30",
+              "31",
+              "32",
+              "33",
+              "34",
+              "35",
+              "36",
+              "37",
+              "38",
+              "39",
+              "40",
+              "41",
+              "42",
+              "43",
+              "44",
+              "45",
+              "46",
+              "47",
+              "48",
+              "49",
+              "50",
+              "51",
+              "52",
+              "53",
+              "54",
+              "55",
+              "56",
+              "57",
+              "58",
+              "59",
+              "60",
+              "61",
+              "62",
+              "63",
+              "64",
+              "65",
+              "66",
+              "67",
+              "68",
+              "69",
+              "70",
+              "71",
+              "72",
+              "73",
+              "74",
+              "75",
+              "76",
+              "77",
+              "78",
+              "79",
+              "80",
+              "81",
+              "82",
+              "83"
+            ],
+            "binSize": 16
+          },
+          "dataTransform": [
+            {
+              "type": "filter",
+              "field": "sample",
+              "oneOf": [
+                "83"
+              ],
+              "not": false
+            }
+          ],
+          "alignment": "overlay",
+          "tracks": [
+            
+            {
+              "mark": "bar"
+            }
+          ],
+          "x": {
+            "field": "start",
+            "type": "genomic"
+          },
+ "xe": {
+            "field": "end",
+            "type": "genomic"
+          },
+          "y": {
+            "field": "peak",
+            "type": "quantitative",
+            "axis": "right",
+            "grid": true
+          },
+          "color": {
+            "value": "gray"
+          },
+"stroke": { "value": "white" },
+"strokeWidth": { "value": 1 },
+          "opacity": {
+            "value": 0.8
+          }
         }
       ]
     }

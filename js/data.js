@@ -43,7 +43,7 @@ window.data = {
         },
       ],
       taskDescription:
-        "Find the areas in the genome where both quantitative attributes have high values without zooming into a specific region of the genome",
+        "Find the areas in the genome where both quantitative attributes have high values without zooming into a specific region of the genome.",
       stimuli: [
         {
           output: "genorec",
@@ -59,14 +59,14 @@ window.data = {
       id: 3,
       dataDescription: [
         {
-          fileFormat: "BEDPE",
-          attributes: "N.A.",
-          featureExtent: "Segment",
-          featureDensity: "Sparse",
-          connection: "Yes",
+          fileFormat: "BIGWIG",
+          attributes: "1 Quantitative",
+          featureExtent: "Point",
+          featureDensity: "Contiguous",
+          connection: "No",
         },
       ],
-      taskDescription: "Analyze inter-chromosomal connections.",
+      taskDescription: "In the given window (Chr1-Chr5), identify if there are any patterns in the data.",
       stimuli: [
         {
           output: "genorec",
@@ -82,14 +82,14 @@ window.data = {
       id: 4,
       dataDescription: [
         {
-          fileFormat: "BIGWIG",
-          attributes: "1 Quantitative",
-          featureExtent: "Point",
-          featureDensity: "Contiguous",
+          fileFormat: "BED",
+          attributes: "1 Text",
+          featureExtent: "Segment",
+          featureDensity: "Sparse",
           connection: "No",
         },
       ],
-      taskDescription: "Identify patterns in the genome.",
+      taskDescription: "Navigate to the window: Chr6: 149,650,000 - Chr6: 149,750,000, and identify the approximate location of gene 'LOC645967'.",
       stimuli: [
         {
           output: "genorec",
@@ -105,14 +105,21 @@ window.data = {
       id: 5,
       dataDescription: [
         {
+          fileFormat: "BIGWIG",
+          attributes: "1 Quantitative",
+          featureExtent: "Point",
+          featureDensity: "Contiguous",
+          connection: "No",
+        },
+        {
           fileFormat: "BED",
-          attributes: "1 Text",
+          attributes: "1 Categorical",
           featureExtent: "Segment",
           featureDensity: "Sparse",
           connection: "No",
         },
       ],
-      taskDescription: "Find the location of a specific gene.",
+      taskDescription: "Navigate to the window: Chr3: 60,000,000 - Chr3: 100,00,000. In this window, find the approximate location of the peak value and characterize the distribution of categorical variable i.e. similar values or distinct values.",
       stimuli: [
         {
           output: "genorec",
@@ -135,14 +142,14 @@ window.data = {
           connection: "No",
         },
         {
-          fileFormat: "BED",
-          attributes: "1 Categorical",
-          featureExtent: "Segment",
-          featureDensity: "Sparse",
+          fileFormat: "BIGWIG",
+          attributes: "1 Quantitative",
+          featureExtent: "Point",
+          featureDensity: "Contiguous",
           connection: "No",
         },
       ],
-      taskDescription: "Analyze values in a specific region of the genome.",
+      taskDescription: "Compare values between Chr3:100,000,00 and Chr6:100,000,000 of the genome.",
       stimuli: [
         {
           output: "genorec",
@@ -164,15 +171,8 @@ window.data = {
           featureDensity: "Contiguous",
           connection: "No",
         },
-        {
-          fileFormat: "BIGWIG",
-          attributes: "1 Quantitative",
-          featureExtent: "Point",
-          featureDensity: "Contiguous",
-          connection: "No",
-        },
       ],
-      taskDescription: "Compare values between two regions of the genome.",
+      taskDescription: "Navigate to window Chr3:100,600,00 - Chr4: 100,700,000 and look for the gene 'ADGRG7'.  In the gene extent, find the second smallest value.",
       stimuli: [
         {
           output: "genorec",
@@ -188,14 +188,21 @@ window.data = {
       id: 8,
       dataDescription: [
         {
-          fileFormat: "BIGWIG",
-          attributes: "1 Quantitative",
-          featureExtent: "Point",
-          featureDensity: "Contiguous",
+          fileFormat: "BED",
+          attributes: "1 Categorical",
+          featureExtent: "Segment",
+          featureDensity: "Sparse",
+          connection: "No",
+        },
+        {
+          fileFormat: "BED",
+          attributes: "1 Categorical",
+          featureExtent: "Segment",
+          featureDensity: "Sparse",
           connection: "No",
         },
       ],
-      taskDescription: "Identify the highest value in chromosome 3.",
+      taskDescription: "Identify regions where categorical variables have high data density in the given genome window (Chr1 - Chr7).",
       stimuli: [
         {
           output: "genorec",
@@ -219,13 +226,21 @@ window.data = {
         },
         {
           fileFormat: "BED",
-          attributes: "1 Categorical",
+          attributes: "1 Quantitative",
+          featureExtent: "Segment",
+          featureDensity: "Sparse",
+          connection: "No",
+        },
+        {
+          fileFormat: "BED",
+          attributes: "1 Text",
           featureExtent: "Segment",
           featureDensity: "Sparse",
           connection: "No",
         },
       ],
-      taskDescription: "Identify regions with maximum combined data density.",
+      taskDescription:
+        "Navigate to window Chr13:48,000,000 - Chr13: 52,000,000. Find the region with a peak and corresponding to the peak value find the category and gene annotation.",
       stimuli: [
         {
           output: "genorec",
@@ -234,37 +249,6 @@ window.data = {
         {
           output: "random",
           spec: "9_a_spec.json",
-        },
-      ],
-    },
-    {
-      id: 10,
-      dataDescription: [
-        {
-          fileFormat: "BIGWIG",
-          attributes: "1 Quantitative",
-          featureExtent: "Point",
-          featureDensity: "Contiguous",
-          connection: "No",
-        },
-        {
-          fileFormat: "SEG",
-          attributes: "1 Quantitative",
-          featureExtent: "Segment",
-          featureDensity: "Sparse",
-          connection: "No",
-        },
-      ],
-      taskDescription:
-        "Find the areas in the genome where both quantitative attributes have high values.",
-      stimuli: [
-        {
-          output: "genorec",
-          spec: "10_g_spec.json",
-        },
-        {
-          output: "random",
-          spec: "10_a_spec.json",
         },
       ],
     },
