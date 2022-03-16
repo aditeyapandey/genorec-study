@@ -28,14 +28,22 @@ window.data = {
       id: 2,
       dataDescription: [
         {
+          fileFormat: "BIGWIG",
+          attributes: "1 Quantitative",
+          featureExtent: "Point",
+          featureDensity: "Contiguous",
+          connection: "No",
+        },
+        {
           fileFormat: "VCF",
-          attributes: "1 Categorical",
+          attributes: "1 Quantitative",
           featureExtent: "Point",
           featureDensity: "Sparse",
           connection: "No",
-        }
+        },
       ],
-      taskDescription: "Find the most common category in Chr 3.",
+      taskDescription:
+        "Find the areas in the genome where both quantitative attributes have high values without zooming into a specific region of the genome",
       stimuli: [
         {
           output: "genorec",
@@ -360,21 +368,21 @@ window.data = {
           attributes: "N.A.",
           featureExtent: "Segment",
           featureDensity: "Contiguous",
-          connection: "Yes"
+          connection: "Yes",
         },
         {
           fileFormat: "BIGWIG",
           attributes: "1 Quantitative",
           featureExtent: "Point",
           featureDensity: "Contiguous",
-          connection: "No"
+          connection: "No",
         },
         {
           fileFormat: "BED",
           attributes: "1 Quantitative",
           featureExtent: "Segment",
           featureDensity: "Sparse",
-          connection: "No"
+          connection: "No",
         },
       ],
       taskDescription: "Identify areas of high connectivity.",
@@ -391,9 +399,6 @@ window.data = {
     },
   ],
 };
-
-
-
 
 // window.data = {
 //   tasks: [
