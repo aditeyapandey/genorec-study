@@ -5,7 +5,7 @@
   "assembly": "hg38",
   "arrangement": "vertical",
   "centerRadius": 0.6,
-  "xdomain":{"interval":[0,100000000]},
+  "xDomain":{"interval":[0,1300000000]},
   "views": [
     {
       "spacing": 10,
