@@ -79,7 +79,7 @@
     let stimuliShuffled = _.shuffle(stimuli);
 
     //Render stimuli
-    d3.json("jsonspec/" + stimuliShuffled[0]["spec"]).then((data) => {
+    d3.json("jsonspecupdated/" + stimuliShuffled[0]["spec"]).then((data) => {
       createStimuli(data, index, stimuliShuffled[0]["output"], 0);
     });
 
@@ -97,7 +97,7 @@
     }
 
     $("#nextStimuliBtn").on("click", function () {
-      d3.json("jsonspec/" + stimuliShuffled[1]["spec"]).then((data) => {
+      d3.json("jsonspecupdated/" + stimuliShuffled[1]["spec"]).then((data) => {
         createStimuli(data, index, stimuliShuffled[1]["output"], 1);
       });
     });

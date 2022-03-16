@@ -1,15 +1,14 @@
 {
   "style": {
-    "enableSmoothPath": true
-  },
+    "enableSmoothPath": true  },
   "assembly": "hg38",
   "arrangement": "vertical",
-  "centerRadius": 0.4,
+  "centerRadius": 0.5,
+  "xdomain":{"interval":[30000000,10000000]},
   "views": [
     {
       "spacing": 10,
       "layout": "circular",
-      "xDomain": { "chromosome": "4"},
       "assembly": "hg38",
       "tracks": [
         {
@@ -70,6 +69,11 @@
               }
             ]
           },
+          "dataTransform": [
+            {
+              "field": "disease", "oneOf": ["Asthma", "Blood protein levels", "White blood cell count", "Neutrophil count", "Body mass index"], "type": "filter"
+            }
+          ],
           "mark": "rect",
           "x": {
             "field": "start",
@@ -79,10 +83,12 @@
           "color": {
             "field": "disease",
             "type": "nominal",
-            "legend": false
+            "domain": ["Asthma", "Blood protein levels", "White blood cell count", "Neutrophil count", "Body mass index"],
+            "legend": true
           },          
           "stroke": {
             "field": "disease",
+            "domain": ["Asthma", "Blood protein levels", "White blood cell count", "Neutrophil count", "Body mass index"],
             "type": "nominal"
           },
           "strokeWidth": {

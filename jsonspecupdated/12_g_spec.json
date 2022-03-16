@@ -1,0 +1,81 @@
+{
+  "style": {
+    "enableSmoothPath": true
+  },
+  "assembly": "hg38",
+  "arrangement": "vertical",
+  "centerRadius": 0.7,
+  "views": [
+    {
+      "assembly": "hg38",
+      "tracks": [
+        {
+          "title": "BED",
+          "data": {
+            "url": "https://server.gosling-lang.org/api/v1/tileset_info/?d=gene-annotation",
+            "type": "beddb",
+            "genomicFields": [
+              {
+                "index": 1,
+                "name": "start"
+              },
+              {
+                "index": 2,
+                "name": "end"
+              }
+            ],
+            "valueFields": [
+              {
+                "index": 5,
+                "name": "strand",
+                "type": "nominal"
+              },
+              {
+                "index": 3,
+                "name": "name",
+                "type": "nominal"
+              }
+            ],
+            "exonIntervalFields": [
+              {
+                "index": 12,
+                "name": "start"
+              },
+              {
+                "index": 13,
+                "name": "end"
+              }
+            ]
+          },
+          "alignment": "overlay",
+          "dataTransform": [
+            {  "type": "filter", "oneOf": ["gene"], "field": "type"},
+                { "type":  "displace", "method":  "pile", "boundingBox": { "startField": "start", "endField": "end", "padding": 20, "isPaddingBP": false}, "newField": "row"}
+              ],
+          "tracks": [
+            {
+              "mark":  "rect",
+              "stroke": { "field": "strand", "type":  "nominal"},
+          "strokeWidth": { "value": 2 }
+            },
+            {
+              
+              "mark":  "text",
+              "color": { "value": "black"},
+              "stroke": { "value": "white"},
+              "strokeWidth": { "value": 1},
+              "row": { "field": "row", "type": "nominal"}
+            }
+          ],
+          
+          "color": { "field": "strand", "type":  "nominal"},
+          "text": { "field": "name", "type":  "nominal"},
+          "x": { "field": "start", "type":  "genomic"},
+          "xe": { "field": "end", "type":  "genomic"},
+          "width": 785,
+          "height": 100
+        }
+      ]
+    }
+  ]
+}

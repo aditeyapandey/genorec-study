@@ -1,0 +1,64 @@
+{
+  "style": {
+    "enableSmoothPath": true,
+    "inlineLegend":true
+  },
+  "assembly": "hg38",
+  "arrangement": "vertical",
+  "centerRadius": 0.7,
+  "views": [
+    {
+      "layout": "circular",
+      "assembly": "hg38",
+      "tracks": [
+        {
+          "title": "BED",
+          "data": {
+            "url": "https://server.gosling-lang.org/api/v1/tileset_info/?d=gene-annotation",
+            "type": "beddb",
+            "genomicFields": [
+              {
+                "index": 1,
+                "name": "start"
+              },
+              {
+                "index": 2,
+                "name": "end"
+              }
+            ],
+            "valueFields": [
+              {
+                "index": 5,
+                "name": "strand",
+                "type": "nominal"
+              },
+              {
+                "index": 3,
+                "name": "name",
+                "type": "nominal"
+              }
+            ],
+            "exonIntervalFields": [
+              {
+                "index": 12,
+                "name": "start"
+              },
+              {
+                "index": 13,
+                "name": "end"
+              }
+            ]
+          },
+          "mark":  "rect",
+          "color": { "field": "name", "type":  "nominal", "legend": true},
+          "x": { "field": "start", "type":  "genomic"},
+          "xe": { "field": "end", "type":  "genomic"},
+          "stroke": { "field": "name", "type":  "nominal"},
+          "strokeWidth": { "value": 2 },
+          "width": 380,
+          "height": 80
+        }
+      ]
+    }
+  ]
+}

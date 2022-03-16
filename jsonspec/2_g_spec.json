@@ -193,63 +193,6 @@
           "opacity": {
             "value": 0.8
           }
-        },
-         {
-          "title": "BED1 - CAT1",
-          "data": {
-            "url": "https://s3.amazonaws.com/gosling-lang.org/data/cancer/rearrangement.PD35930a.csv",
-            "type": "csv",
-            "genomicFieldsToConvert": [
-              {
-                "chromosomeField": "chr1",
-                "genomicFields": ["start1", "end1"]
-              },
-              {
-                "chromosomeField": "chr2",
-                "genomicFields": ["start2", "end2"]
-              }
-            ]
-          },
-          "dataTransform": [
-            { "type": "filter", "field": "svclass", "oneOf": ["translocation"], "not": true}
-          ],
-          "mark": "rect",
-          "x": {"field": "start1", "type": "genomic"},
-          "xe": {"field": "end2", "type": "genomic"},
-          "color": {
-            "field": "svclass",
-            "type": "nominal",
-            "legend": false,
-            "domain": [
-              "tandem-duplication",
-              "delection",
-              "inversion"
-            ],
-            "range": ["#569C4D", "#4C75A2", "#DA5456", "#EA8A2A"]
-          },
-          "row": {
-            "field": "svclass",
-            "type": "nominal",
-            "domain": [
-              "tandem-duplication",
-              "delection",
-              "inversion"
-            ]
-          },
-          "stroke": {
-            "field": "svclass",
-            "type": "nominal",
-            "domain": [
-              "tandem-duplication",
-              "delection",
-              "inversion"
-            ],
-            "range": ["#569C4D", "#4C75A2", "#DA5456", "#EA8A2A"]
-          },
-          "strokeWidth": {"value": 1},
-          "opacity": {"value": 0.6},
-          "width": 500,
-          "height": 100
         }
       ]
     }

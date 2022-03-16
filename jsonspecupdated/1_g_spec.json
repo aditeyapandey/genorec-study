@@ -1,10 +1,12 @@
 {
   "style": {
-    "enableSmoothPath": true
+    "enableSmoothPath": true,
+    "inlineLegend":true
+
   },
   "assembly": "hg38",
   "arrangement": "vertical",
-  "centerRadius": 0.3,
+  "centerRadius": 0.6,
   "views": [
     {
       "layout": "linear",
@@ -105,94 +107,23 @@
           "style": {
             "outline": "black"
           },
-          "width": 710,
+          "width": 800,
           "height": 20
         }
       ]
     },
     {
-      "xDomain": { "chromosome": "7"},
       "linkingId": "A",
-      "layout": "linear",
+      "xDomain": { "chromosome": "4"},
       "assembly": "hg38",
       "tracks": [
         {
-          "title": "BIGWIG1 - QUANT1",
+          "title": "VCF1 - CAT1",
           "style": {
             "outlineWidth": 1
           },
-          "width": 710,
-          "height": 110,
-          "data": {
-            "url": "https://resgen.io/api/v1/tileset_info/?d=UvVPeLHuRDiYA3qwFlm7xQ",
-            "type": "multivec",
-            "row": "sample",
-            "column": "position",
-            "value": "peak",
-            "categories": [
-              "0",
-              "1",
-              "2",
-              "3",
-              "4",
-              "5",
-              "6",
-              "7",
-              "8",
-              "9"
-            ],
-            "binSize": 4
-          },
-          "dataTransform": [
-            {
-              "type": "filter",
-              "field": "sample",
-              "oneOf": [
-                "9"
-              ],
-              "not": false
-            }
-          ],
-          "alignment": "overlay",
-          "tracks": [
-            {
-              "mark": "line"
-            },
-            {
-              "mark": "point",
-              "size": {
-                "value": 2
-              }
-            }
-          ],
-          "x": {
-            "field": "position",
-            "type": "genomic",
-            "linkingId": "A"
-          },
-          "y": {
-            "field": "peak",
-            "type": "quantitative",
-            "axis": "right",
-            "grid": true
-          },
-          "color": {
-            "value": "gray"
-          },
-          "size": {
-            "value": 1
-          },
-          "opacity": {
-            "value": 0.8
-          }
-        },
-        {
-          "title": "BED1 - CAT1",
-          "style": {
-            "outlineWidth": 1
-          },
-          "width": 710,
-          "height": 110,
+          "width": 800,
+          "height": 130,
           "data": {
             "url": "https://server.gosling-lang.org/api/v1/tileset_info/?d=gwas-beddb",
             "type": "beddb",
