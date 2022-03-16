@@ -149,7 +149,7 @@ window.data = {
           connection: "No",
         },
       ],
-      taskDescription: "Compare values between Chr3:100,000,00 and Chr6:100,000,000 of the genome.",
+      taskDescription: "Compare values between Chr3:100,000,000 and Chr6:100,000,000 of the genome.",
       stimuli: [
         {
           output: "genorec",
