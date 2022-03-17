@@ -1,3 +1,6 @@
+#vis>div{
+    cursor: move;
+}
 .disabledBtnParent
 {
     cursor: not-allowed;

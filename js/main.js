@@ -88,11 +88,11 @@
       $("#nextStimuli").addClass("disabledBtnParent");
 
       $("#nextStimuli").append(
-        ` <button type="button" id="nextStimuliBtn" class=" btn btn-secondary btn-sm disabledBtn"> Next Stimuli </button>`
+        ` <button type="button" id="nextStimuliBtn" class=" btn btn-secondary btn-sm disabledBtn"> Next Stimulus </button>`
       );
     } else {
       $("#nextStimuli").append(
-        ` <button type="button" id="nextStimuliBtn" class=" btn btn-secondary btn-sm"> Next Stimuli </button>`
+        ` <button type="button" id="nextStimuliBtn" class=" btn btn-secondary btn-sm"> Next Stimulus </button>`
       );
     }
 
