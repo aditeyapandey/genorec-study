@@ -1,0 +1,210 @@
+{
+  "style": {
+    "enableSmoothPath": true
+  },
+  "assembly": "hg38",
+  "arrangement": "vertical",
+  "centerRadius": 0.3,
+  "views": [
+        {
+      "layout": "linear",
+      "assembly": "hg38",
+      "tracks": [
+        {
+          "static": true,
+          "alignment": "overlay",
+          "title": "Whole Genome",
+          "data": {
+            "url": "https://raw.githubusercontent.com/sehilyi/gemini-datasets/master/data/UCSC.HG38.Human.CytoBandIdeogram.csv",
+            "type": "csv",
+            "chromosomeField": "Chromosome",
+            "genomicFields": ["chromStart", "chromEnd"]
+          },
+          "tracks": [
+            {
+              "mark": "rect",
+              "color": {
+                "field": "Chromosome",
+                "type": "nominal",
+                "domain": [
+                  "chr1",
+                  "chr2",
+                  "chr3",
+                  "chr4",
+                  "chr5",
+                  "chr6",
+                  "chr7",
+                  "chr8",
+                  "chr9",
+                  "chr10",
+                  "chr11",
+                  "chr12",
+                  "chr13",
+                  "chr14",
+                  "chr15",
+                  "chr16",
+                  "chr17",
+                  "chr18",
+                  "chr19",
+                  "chr20",
+                  "chr21",
+                  "chr22",
+                  "chrX",
+                  "chrY"
+                ],
+                "range": ["#F6F6F6", "black"]
+              },
+              "x": {
+                "field": "chromStart",
+                "type": "genomic",
+                "aggregate": "min"
+              },
+              "xe": {
+                "field": "chromEnd",
+                "aggregate": "max",
+                "type": "genomic"
+              }
+            },
+            {
+              "mark": "brush",
+              "x": { "linkingId": "A" },
+              "stroke": { "value": "black" },
+              "strokeWidth": { "value": 2 }
+            },
+            {
+              "mark": "brush",
+              "x": { "linkingId": "B" },
+              "stroke": { "value": "black" },
+              "strokeWidth": { "value": 2 }
+            }
+          ],
+          "stroke": { "value": "gray" },
+          "strokeWidth": { "value": 0.5 },
+          "style": { "outline": "black" },
+          "width": 840,
+          "height": 20
+        }
+      ]
+    },
+    {
+      "linkingId": "A",
+      "arrangement": "horizontal",
+      "views": [
+         {
+           "xDomain": { "chromosome": "3" },
+      "assembly": "hg38",
+      "tracks": [
+        {
+          "title": "BEDPE1",
+          
+          "style": {
+            "outlineWidth": 1
+          },
+          "width": 420,
+          "height": 260,
+          "data": {
+            "url": "https://s3.amazonaws.com/gosling-lang.org/data/cancer/rearrangement.PD35930a.csv",
+            "type": "csv",
+            "genomicFieldsToConvert": [
+              {
+                "chromosomeField": "chr1",
+                "genomicFields": ["start1", "end1"]
+              },
+              {
+                "chromosomeField": "chr2",
+                "genomicFields": ["start2", "end2"]
+              }
+            ]
+          },
+          "mark": "withinLink",
+          "x": {"field": "start1", "type": "genomic"},
+          "xe": {"field": "end2", "type": "genomic"},
+          "color": {
+            "field": "svclass",
+            "type": "nominal",
+            "legend": false,
+            "domain": [
+              "tandem-duplication",
+              "translocation",
+              "delection",
+              "inversion"
+            ],
+            "range": ["#569C4D", "#4C75A2", "#DA5456", "#EA8A2A"]
+          },
+          "stroke": {
+            "field": "svclass",
+            "type": "nominal",
+            "domain": [
+              "tandem-duplication",
+              "translocation",
+              "delection",
+              "inversion"
+            ],
+            "range": ["#569C4D", "#4C75A2", "#DA5456", "#EA8A2A"]
+          },
+          "strokeWidth": {"value": 1},
+          "opacity": {"value": 0.6}
+        }
+      ]
+    },
+    {
+      "linkingId": "B",
+      "xDomain": { "chromosome": "8" },
+      "assembly": "hg38",
+      "tracks": [
+         {
+          "title": "BEDPE2",
+          "style": {
+            "outlineWidth": 1
+          },
+          "width": 420,
+          "height": 260,
+          "data": {
+            "url": "https://s3.amazonaws.com/gosling-lang.org/data/cancer/rearrangement.PD35930a.csv",
+            "type": "csv",
+            "genomicFieldsToConvert": [
+              {
+                "chromosomeField": "chr1",
+                "genomicFields": ["start1", "end1"]
+              },
+              {
+                "chromosomeField": "chr2",
+                "genomicFields": ["start2", "end2"]
+              }
+            ]
+          },
+          "mark": "withinLink",
+          "x": {"field": "start1", "type": "genomic"},
+          "xe": {"field": "end2", "type": "genomic"},
+          "color": {
+            "field": "svclass",
+            "type": "nominal",
+            "legend": false,
+            "domain": [
+              "tandem-duplication",
+              "translocation",
+              "delection",
+              "inversion"
+            ],
+            "range": ["#569C4D", "#4C75A2", "#DA5456", "#EA8A2A"]
+          },
+          "stroke": {
+            "field": "svclass",
+            "type": "nominal",
+            "domain": [
+              "tandem-duplication",
+              "translocation",
+              "delection",
+              "inversion"
+            ],
+            "range": ["#569C4D", "#4C75A2", "#DA5456", "#EA8A2A"]
+          },
+          "strokeWidth": {"value": 1},
+          "opacity": {"value": 0.6}
+        }
+      ]
+    }
+      ]
+    }
+  ]
+}

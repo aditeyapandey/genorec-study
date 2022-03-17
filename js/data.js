@@ -253,40 +253,26 @@ window.data = {
       ],
     },
     {
-      id: 11,
+      id: 10,
       dataDescription: [
         {
-          fileFormat: "BED",
+          fileFormat: "BEDPE",
           attributes: "1 Categorical",
           featureExtent: "Segment",
           featureDensity: "Sparse",
-          connection: "No",
-        },
-        {
-          fileFormat: "BED",
-          attributes: "1 Quantitative",
-          featureExtent: "Segment",
-          featureDensity: "Sparse",
-          connection: "No",
-        },
-        {
-          fileFormat: "BED",
-          attributes: "1 Text",
-          featureExtent: "Segment",
-          featureDensity: "Sparse",
-          connection: "No",
-        },
+          connection: "Yes",
+        } 
       ],
       taskDescription:
-        "Read categorical, quantitative and text values for a specific location.",
+        "Compared to Chr 3 does Chr 19 have a lower or higher number of chromosomal interconnections.",
       stimuli: [
         {
           output: "genorec",
-          spec: "11_g_spec.json",
+          spec: "10_g_spec.json",
         },
         {
           output: "random",
-          spec: "11_a_spec.json",
+          spec: "10_a_spec.json",
         },
       ],
     },
