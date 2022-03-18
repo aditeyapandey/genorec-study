@@ -17,7 +17,7 @@
   let currentTaskIndex = 0;
   let totalTasks = 10;
   let responseData = {};
-  const mode = "test";
+  const mode = "normal";
 
   //Read data
   let data = window.data;
