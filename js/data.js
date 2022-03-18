@@ -12,7 +12,7 @@ window.data = {
         },
       ],
       taskDescription:
-        "Navigate to the window: Chr19: 30,000,000 - Chr20: 10,000,000, and characterize the distribution of the categorical variable, i.e. similar values or distinct values.",
+        "Navigate to the window: Chr19: 20,000,000 - Chr19: 80,000,000, and characterize the distribution of the categorical variable, i.e. similar values or distinct values.",
       stimuli: [
         {
           output: "genorec",
