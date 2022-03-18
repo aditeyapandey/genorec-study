@@ -12,7 +12,7 @@ window.data = {
         },
       ],
       taskDescription:
-        "Navigate to the window: Chr19: 20,000,000 - Chr19: 80,000,000, and characterize the distribution of the categorical variable, i.e. similar values or distinct values.",
+        "Navigate to the window: Chr19: 20,000,000 - Chr19: 80,000,000 and characterize the distribution of the categorical variable i.e. similar values or distinct values.",
       stimuli: [
         {
           output: "genorec",
@@ -43,7 +43,7 @@ window.data = {
         },
       ],
       taskDescription:
-        "Find the areas in the genome where both quantitative attributes have high values without zooming into a specific region of the genome.",
+        "In this overview, find the areas in the genome where both quantitative attributes have high values. Do not change the zoom level.",
       stimuli: [
         {
           output: "genorec",
@@ -66,7 +66,7 @@ window.data = {
           connection: "No",
         },
       ],
-      taskDescription: "In the given window (Chr1-Chr5), identify if there are any patterns in the data.",
+      taskDescription: "Identify if there are any global patterns of interest in the data. Do not change the zoom level.",
       stimuli: [
         {
           output: "genorec",
@@ -119,7 +119,7 @@ window.data = {
           connection: "No",
         },
       ],
-      taskDescription: "Navigate to the window: Chr3: 60,000,000 - Chr3: 100,00,000. In this window, find the approximate location of the peak value and characterize the distribution of categorical variable i.e. similar values or distinct values.",
+      taskDescription: "Navigate to the window: Chr3: 60,000,000 - Chr3: 100,750,000. In this window, find the approximate location of the peak value and characterize the distribution of the categorical variable, i.e., are its values similar or do they vary?",
       stimuli: [
         {
           output: "genorec",
@@ -149,7 +149,7 @@ window.data = {
           connection: "No",
         },
       ],
-      taskDescription: "Compare values between Chr3:100,000,000 and Chr6:100,000,000 of the genome.",
+      taskDescription: "Compare values of the quantitative variable  Chr3:100,000,000 and Chr3:150,000,000 with values between Chr6:50,000,000 and Chr6:100,000,000.",
       stimuli: [
         {
           output: "genorec",
@@ -172,7 +172,7 @@ window.data = {
           connection: "No",
         },
       ],
-      taskDescription: "Navigate to window Chr3:100,600,00 - Chr4: 100,700,000 and look for the gene 'ADGRG7'.  In the gene extent, find the second smallest value.",
+      taskDescription: "Navigate to window Chr6:160,000,000 - Chr6: 165,000,000 and look for the gene “PRKN”.  Find the second smallest value within the gene body.",
       stimuli: [
         {
           output: "genorec",
@@ -202,7 +202,7 @@ window.data = {
           connection: "No",
         },
       ],
-      taskDescription: "Identify regions where categorical variables have high data density in the given genome window (Chr1 - Chr7).",
+      taskDescription: "Identify regions where both categorical variables have high data density in Chr1 - Chr7.",
       stimuli: [
         {
           output: "genorec",
@@ -264,7 +264,7 @@ window.data = {
         } 
       ],
       taskDescription:
-        "Compared to Chr 3 does Chr 19 have a lower or higher number of chromosomal interconnections.",
+        "Compared to Ch3 does Ch 8 have a lower or higher number of intrachromosomal connections (connections that start and end within the chromsome)?",
       stimuli: [
         {
           output: "genorec",

@@ -1,11 +1,11 @@
 {
   "style": {
-    "enableSmoothPath": true
+    "enableSmoothPath": true,
+    "inLineLegend":"true"
   },
   "assembly": "hg38",
   "arrangement": "vertical",
   "centerRadius": 0.7,
-  "xDomain":{"interval":[66000000, 67000000]},
   "views": [
     {
       "layout": "circular",

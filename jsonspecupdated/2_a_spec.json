@@ -104,7 +104,7 @@
       "assembly": "hg38",
       "tracks": [
         {
-          "title": "SEG1 - QUANT1",
+          "title": "VCF1 - QUANT1",
           "style": {
             "outlineWidth": 1
           },
