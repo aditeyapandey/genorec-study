@@ -32,6 +32,16 @@
     createTask(data, currentTaskIndex);
   });
 
+    // select box
+    $("#download").click(function () {
+      var data =
+      "text/json;charset=utf-8," +
+      encodeURIComponent(JSON.stringify(responseData));
+      $("#download").attr("download","data.json")
+      $("#download").attr("href","data:"+data)
+
+    });
+
   function createTask(data, index) {
     //Add task header
     $("#taskHeader").append(`<h3>Task ${index + 1}/${totalTasks}</h3>`);
