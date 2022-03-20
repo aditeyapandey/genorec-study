@@ -43,7 +43,7 @@
               "delection",
               "inversion"
             ],
-            "range": ["#569C4D", "#4C75A2", "#DA5456", "#EA8A2A"]
+            "range": ["#66c2a5", "#8da0cb", "#fc8d62", "#EA8A2A"]
           },
           "row": {
             "field": "svclass",
@@ -62,7 +62,7 @@
               "delection",
               "inversion"
             ],
-            "range": ["#569C4D", "#4C75A2", "#DA5456", "#EA8A2A"]
+            "range": ["#66c2a5", "#8da0cb", "#fc8d62", "#EA8A2A"]
           },
           "strokeWidth": {"value": 1},
           "opacity": {"value": 0.6},
@@ -75,7 +75,7 @@
             "outlineWidth": 1
           },
           "width": 380,
-          "height": 80,
+          "height": 40,
           "data": {
             "url": "https://server.gosling-lang.org/api/v1/tileset_info/?d=gwas-beddb",
             "type": "beddb",
