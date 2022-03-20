@@ -82,29 +82,6 @@ window.data = {
       id: 4,
       dataDescription: [
         {
-          fileFormat: "BED",
-          attributes: "1 Text",
-          featureExtent: "Segment",
-          featureDensity: "Sparse",
-          connection: "No",
-        },
-      ],
-      taskDescription: "Navigate to the window: Chr6: 149,650,000 - Chr6: 149,750,000, and identify the approximate location of gene 'LOC645967'.",
-      stimuli: [
-        {
-          output: "genorec",
-          spec: "4_g_spec.json",
-        },
-        {
-          output: "random",
-          spec: "4_a_spec.json",
-        },
-      ],
-    },
-    {
-      id: 5,
-      dataDescription: [
-        {
           fileFormat: "BIGWIG",
           attributes: "1 Quantitative",
           featureExtent: "Point",
@@ -132,7 +109,7 @@ window.data = {
       ],
     },
     {
-      id: 6,
+      id: 5,
       dataDescription: [
         {
           fileFormat: "BIGWIG",
@@ -162,7 +139,7 @@ window.data = {
       ],
     },
     {
-      id: 7,
+      id: 6,
       dataDescription: [
         {
           fileFormat: "BIGWIG",
@@ -185,7 +162,7 @@ window.data = {
       ],
     },
     {
-      id: 8,
+      id: 7,
       dataDescription: [
         {
           fileFormat: "BED",
@@ -215,7 +192,7 @@ window.data = {
       ],
     },
     {
-      id: 9,
+      id: 8,
       dataDescription: [
         {
           fileFormat: "BED",
@@ -253,7 +230,7 @@ window.data = {
       ],
     },
     {
-      id: 10,
+      id: 9,
       dataDescription: [
         {
           fileFormat: "BEDPE",
